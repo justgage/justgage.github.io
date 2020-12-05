@@ -62,7 +62,7 @@
 <li>refactoring and not finding where all the places you need to change</li>
 <li>etc...</li>
 </ul>
-<p>Think about what this means for us. Less time hunting down bugs means more time making features. <a href="http://localhost:5000/static_typing.md" rel="noopener noreferrer">Static Typing</a> also means less tests, with higher reliability.</p>
+<p>Think about what this means for us. Less time hunting down bugs means more time making features. <a href="https://justgage.github.io/static_typing.md" rel="noopener noreferrer">Static Typing</a> also means less tests, with higher reliability.</p>
 <p>Tests are also easier to write because all functions are pure in Elm.</p>
 <p>Also refactoring is far less error prone because the compiler can find all runtime exceptions. Confident refactoring means it's easier to pay off technical debt</p>
 <h2>Elm is easier to learn than JavaScript</h2>
@@ -83,14 +83,14 @@
 <p>Elm is also easier to learn because it's similar to Elixir due to being functional, having pattern matching, and even having our favorite |&gt; operator.</p>
 <p>While we write mostly functional JavaScript at it's core it's still a prototypal OO language with many inparitive parts.</p>
 <h2>The costs of Elm</h2>
-<p><a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a> does have some costs. The main one would be there's some boiler plate code to interop with JavaScript. This is because Elm requires everything to be immutable and has no null so you have to transform JSON into Elm data structures. However there's tools to automatically transform JSON into Elm decoders. However this is also a benefit because it removes the danger of working with JSON structures that all too often cause runtime exceptions. Elm makes you handle these before you break production, not after.</p>
+<p><a href="https://justgage.github.io/elm.md" rel="noopener noreferrer">Elm</a> does have some costs. The main one would be there's some boiler plate code to interop with JavaScript. This is because Elm requires everything to be immutable and has no null so you have to transform JSON into Elm data structures. However there's tools to automatically transform JSON into Elm decoders. However this is also a benefit because it removes the danger of working with JSON structures that all too often cause runtime exceptions. Elm makes you handle these before you break production, not after.</p>
 <p>It also requires you to talk to JavaScript over "ports" which are basically a pub sub style channel. This is because if JavaScript threw any exceptions Elm would lose its policy about no runtime exceptions. While this can seem inconvenient you're trading that for no runtime exceptions which is going to be worth it in the long run.</p>
 <h1>Give it a try</h1>
 <p>Talk is cheap, a real experiment is the only way to really tell if Elm is right for us.</p>
 <hr>
 <p><em><strong>Backlinks</strong></em>:</p>
 <ul>
-<li><a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a></li>
+<li><a href="https://justgage.github.io/elm.md" rel="noopener noreferrer">Elm</a></li>
 </ul>
 
     </div>

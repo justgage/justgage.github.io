@@ -43,7 +43,7 @@
 
     <div id="main">
         <h1>Versioning Events</h1>
-<p><a href="http://localhost:5000/event-sourcing.md" rel="noopener noreferrer">event-sourcing</a></p>
+<p><a href="https://justgage.github.io/event-sourcing.md" rel="noopener noreferrer">event-sourcing</a></p>
 <p>Each model has it's version. NOTE: versions are always backwards compatible OR they are a new version!</p>
 <pre><code>
 %Eventv1{name: "Gage"}
@@ -51,14 +51,14 @@
 %Agev1{age: 27} # not backwards compatible
 </code></pre>
 <h2>Information from external systems</h2>
-<p>Never lookup data from an external systems in a projection! It's better to <strong>inline that information into the Event.</strong> Think of how <a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a> saves all the events it gets from external systems into it's event store.</p>
+<p>Never lookup data from an external systems in a projection! It's better to <strong>inline that information into the Event.</strong> Think of how <a href="https://justgage.github.io/elm.md" rel="noopener noreferrer">Elm</a> saves all the events it gets from external systems into it's event store.</p>
 <h2>Changing Semantic Meaning</h2>
 <blockquote>
 <p>One important aspect of versioning is that semantic meaning cannot change between versions of software. There is no good way for a downstream consumer to understand a semantic meaning change.</p>
 </blockquote>
 <p>EG: Tempature number must always be in the same units. Don't reuse things for different meaning!</p>
 <h1>What if I make a mistake?</h1>
-<p><img src="http://localhost:5000/Versioning%20Events/02352518-35DA-4A66-BC0E-3AEFB4C75F47.png" alt=""></p>
+<p><img src="https://justgage.github.io/Versioning%20Events/02352518-35DA-4A66-BC0E-3AEFB4C75F47.png" alt=""></p>
 <p>What would an accountant do?</p>
 <p>Also you can:
 1. Copy and transform to a new stream, once it's over there move to the new stream and delete the old one
