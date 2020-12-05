@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Messenger DGraph Schema </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Messenger <a href="http://localhost:5000/dgraph.md" rel="noopener noreferrer">Dgraph</a> Schema</h1>
+<p>Populating the database</p>
+<pre><code>{
+  set {
+     _:location &lt;type&gt; "location" .
+      _:location &lt;name&gt; "Ken Garf" .
+      _:chatRoom &lt;type&gt; "chatRoom" .
+      _:chatRoom &lt;phoneNumber&gt; "+12083571222".
+      _:location &lt;comunicates_via&gt; _:chatRoom .
+      _:conversation &lt;type&gt; "conversation" .
+      _:message &lt;type&gt; "message" .
+      _:message &lt;body&gt; "Hello, how are you" .
+      _:message_2 &lt;type&gt; "message".
+      _:message_2 &lt;body&gt; "great" .
+      _:conversation &lt;has_item&gt; _:message .
+      _:conversation &lt;has_item&gt; _:message_2 .
+  }
+}
+</code></pre>
+<p>Find all the conversations/items for a location</p>
+<pre><code>{
+  loc(func: eq(type, "location")) {
+    name
+    comunicates_via {
+      type
+      phoneNumber
+      has_conversation {
+        type
+        has_item(orderasc: body) {
+          body
+          type
+          
+        }
+      }
+    }
+  }
+}
+</code></pre>
+<ul>
+<li><a href="http://localhost:5000/how_to_run_dgraph.md" rel="noopener noreferrer">How to run Dgraph</a></li>
+<li><a href="http://localhost:5000/graph_databases_with_dgraph.md" rel="noopener noreferrer">Graph Databases with Dgraph</a></li>
+<li><a href="http://localhost:5000/graph_of_notes.png" rel="noopener noreferrer">Graph of Notes</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

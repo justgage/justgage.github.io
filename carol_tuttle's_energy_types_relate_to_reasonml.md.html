@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Carol Tuttle's Energy Types relate to ReasonML </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Carol Tuttle's Energy Types relate to ReasonML</h1>
+<h2>There's a pretty good chance you're a type 2</h2>
+<h2>There's a pretty good chance many of your co-workers, especially those you need to convince, are type 3.</h2>
+<p>Type 3 is about getting sh*t done. Period. You may say,  <em>"But I like to get stuff done too!"</em> Yes you do, but not like type 3's. The difference between you and them is your primary goal. Type 2's get stuff done by assessing the options, asking lots of questions, figuring out the best strategy, and once comfortable, start doing it.</p>
+<p>Type 3's start the task, ask questions later, stop when it's done. Move on to the next TODO. If they run into problems they find the quickest solution and take it, move on to the next task.</p>
+<p>They use JavaScript because it doesn't get in their way very much. They can quickly understand the language and get productive, which is what they are all about. They don't read docs, they don't ask questions, they copy and paste example code and modify it to do what they want, they leave that code and never take another thought. They are all about upward and forward movement.</p>
+<p>Many of these tendencies would irk you as a type 2 personality. You may find things like using <code>float</code> in css when <code>flex box</code> is obviously better. Don't they know or care? <strong>NOPE</strong>, they do not, because <code>float</code> gets the job done, they won't be too interested until they try to align something vertically, then they'll do a google search, find that someone said that flex box can do it, they will copy and paste the code, then do it.</p>
+<p>Another example is they'll probably use Class components for everything. Why? Because it's easier, and works for everything. They have to know 1 thing to accomplish everything they need to know.</p>
+<p>Type 3's don't like to spend lots of time learning and assessing options. That's not "getting things done". Learning often slows down a task. If you have to learn something to do it, that's time wasted.</p>
+<h2>Selling to a Type 3 person</h2>
+<p>The only way you're going to sell to a Type 3 person is difficult. The main problem you're going to run into is that they don't usually care very much about doing things <em>best</em> way. They care about the clearest path to success. Usually the quickest path to success is not looking, discovering, learning, then applying a tool. It's applying a tool you already have in your repertoire.</p>
+<p><strong>HARD FACT</strong>: Doing something in JavaScript is often faster than ReasonML, especially if you don't know ReasonML.</p>
+<p>If you're a type 2 you probably have a much higher tolerance for reading a learning about things than a type 3 does. Which is fine on both sides.</p>
+<p>So <strong>How do we sell</strong>?</p>
+<h3>Step 1: We have to make <em>Reason the most productive language!</em>.</h3>
+<p><em>well isn't it already?</em>.  In my opinion: "Kinda".</p>
+<h3>What's really productive in ReasonML:</h3>
+<ol>
+<li>Changing a type, seeing everywhere it breaks</li>
+<li>Refactoring! This is really easy in ReasonML. So long as the compiler errors make sense.</li>
+<li>Compilation times! Love to see the browser refresh sooooo fast. This is a huge thing to talk about and we should all be very proud of this.</li>
+<li>Bundle size reduction. Having to take a day or two to trim down bundle size is work nobody wants to do, what if by using this language you would just naturally get small bundles? This could be huge. JavaScript really doesn't  do well with this and never really will. Nor will TypeScript.</li>
+<li>No Imports! This takes a bit to get used to, and <em>can</em> lead to some confusion initially, but with some good tooling this could be a huge strength.</li>
+<li>Less bugs in production!</li>
+<li>Expressing things via types like <code>Author(id) | Commenter(id, email) | Guest</code></li>
+</ol>
+<h3>What will probably always be harder in ReasonML:</h3>
+<ol>
+<li>Functions can't take different type of arguments this means that in React you have to do this, when you didn't  previously. This is an OCaml design choice, although maybe will change in the future.</li>
+</ol>
+<pre><code>&lt;div&gt;
+"asdf"-&gt;ReasonReact.string
+2-&gt;string_of_int-&gt;ReasonReact.string
+&lt;/div&gt; 
+</code></pre>
+<ol>
+<li>Understanding Types scope when you can write type annotations, when you don't need them can be tricky. Typed languages are a skill, they aren't going to be something people can pick up without trying like JS.</li>
+</ol>
+<p>What <em>could</em> make ReasonML more productive (given some work)?</p>
+<ol>
+<li><strong>Editor Tooling!!!</strong> This is HUGE for a type 3 person, if ReasonML means
+2. If you type <code>&lt;div</code> you should immediately get all the properties that a div could have. Better yet, if you type <code>&lt;Route</code> you should immediately get all the properties that that component could take.
+1. If there's required arguments <code>&lt;Route</code> should quickly expand into <code>&lt;Route to="string" render={} /&gt;</code> or something like that.
+3. If you type <code>foo(</code> you should see the signature of the function floating there, *even if it's an opened module function
+4. <code>cmd-click</code>ing a function should always take to the right place</li>
+<li><strong>Type and Syntax errors should always point you to the problem with a quick and convince description</strong>. This is not true right now. But it could be!</li>
+<li><strong>Writing Mobile/Desktop native apps.</strong> Right now the tooling for JS native apps is very lacking. This is something ReasonML could really succeed at.</li>
+<li><strong>Debugging runtime exceptions.</strong>
+<ol>
+<li>You may say "the code is soooo readable" It's not. Especially if you're writing a React component. I can read it OK but I'm familiar with Reason.</li>
+<li>Because the JS is generated and doesn't look much like JS, it's hard to debug these kinds of things. We need source maps and easy way to JS.log something with the proper types in ReasonML's terms. Yes this is possible but it needs to be easier.</li>
+</ol>
+</li>
+</ol>
+<h2>Step 2: Just use it.</h2>
+<p>This is how pragmatist do things. They just start. They make something useful. If they run into problems, they solve them. If they run into problems a lot, they make libraries. Rinse and repeat.</p>
+<p><a href="http://localhost:5000/reasonconf2019.md" rel="noopener noreferrer">reasonconf2019</a> <a href="http://localhost:5000/reason.md" rel="noopener noreferrer">reason</a> <a href="http://localhost:5000/carol_tuttle's_energy_types.md" rel="noopener noreferrer">Carol Tuttle's Energy Types</a></p>
+
+    </div>
+</body>
+
+</html>

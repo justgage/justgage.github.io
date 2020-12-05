@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> How the files are organized </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>How the files are organized</h1>
+<ul>
+<li><strong>lib/</strong>
+<ul>
+<li><strong>mind_flayer/</strong>
+<ul>
+<li><strong>(context_name)/</strong>
+<ul>
+<li><strong>(context_function_name, eg: get_one.ex)</strong>
+<ol>
+<li>This file contains a single public method named <code>call</code>. This is <code>defdelegate</code>ed in the (context_name).ex file</li>
+</ol>
+<ul>
+<li><strong>aggregate.ex</strong> (optional)</li>
+</ul>
+<ol>
+<li>if the context requires saving itself to the database this provides the <a href="https://github.com/commanded/commanded/blob/master/guides/Aggregates.md" rel="noopener noreferrer">aggregate</a> for it.</li>
+<li>This file contains...
+<ol>
+<li>execute(current_state, command) -&gt; new_event(s)<em>nil</em>{:error, "reason"}
+<ol>
+<li>this method will take in a command, and the current state and determine if it wants to emit one or many events or an error tuple such as <code>{:error, "reason"}</code>  to indicate that this is an invalid command OR it can return <code>nil</code> which indicates that it's a <code>noop</code> (a command that didn't do anything)</li>
+</ol>
+</li>
+<li>apply(current_state, event_that_just_happened) -&gt; new state
+<ol>
+<li>this will take any events saved by <code>execute</code> and use them to update this current aggregate's state.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>commands/</strong>
+<ul>
+<li><strong>(command_name).ex</strong>
+<ul>
+<li>These are named in an <em>imperative</em> style as <code>archive_widget.ex</code>	 or <code>whitelist_organization.ex</code>. You <em>can</em> name these CRUD operations but it's better to name them as specific to what their doing as possible. For instance you can <em>create</em> a widget but did you really create the user. You didn't. you're not their mother.</li>
+<li>These are structs, usually with no changeset. They are validated by the aggregate. It choses if it wants to execute the command.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>(context_name).ex</strong>
+<ul>
+<li>This has all the docs and <code>defdelegate</code>'s to other files</li>
+</ul>
+</li>
+<li><strong>es/</strong>
+<ul>
+<li><strong>router.ex</strong>
+<ul>
+<li>this routes commands to different aggregates.</li>
+</ul>
+</li>
+<li><strong>events/</strong> (widget_created.ex)
+<ul>
+<li>These are named in past tense, like an event in history (because they are). Such as <code>wdiget_archived.ex</code> or <code>org_whitelisted.ex</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="http://localhost:5000/mindflayer.md" rel="noopener noreferrer">mindflayer</a></p>
+
+    </div>
+</body>
+
+</html>

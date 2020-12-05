@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> The Argument for Elm </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>The Argument for <a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a></h1>
+<h2>Elm is a whole new language, it seems easier to just add redux</h2>
+<p>Elm adds far more value than redux such as a type system and no runtime exceptions not to mention is a lot easier to understand in elm because
+ility is enforced for all data structures.</p>
+<h2>how can we trust elm if it isn't stable yet?</h2>
+<p>Although Evan has made breaking changes to the language they have been pretty minimal and have always been large improvements. This essentially means that every so often you get an upgrade that will help your codebases quality improve. Also much of that upgrade can be handled by elm-format.</p>
+<p>Elm has been around for about 5 years which is far more stable than the JS libraries you would use to replace it</p>
+<h2>You have to use ports to interact with JavaScript which has a lot of boiler-plate</h2>
+<p>That's the price you pay for no runtime exceptions and immutability. The elm package ecosystem is very good for it's age. Most of the common stuff would like to do like http, web sockets and interacting with the navigation bar is there.</p>
+<h2>Wouldn't it be hard to train people on?</h2>
+<p>Elm is perhaps one of the easiest and most friendly languages to learn. The language itself is <a href="http://www.elmbark.com/2016/03/16/mainstream-elm-user-focused-design" rel="noopener noreferrer"><em>designed</em> to be easy to learn</a> and <a href="http://elm-lang.org/blog/compilers-as-assistants" rel="noopener noreferrer">helpful to new people</a>.</p>
+<p>It has basically no cruft. In fact the author Evan has basically been systematically getting rid of the dark corners of the language. The language has literally gotten smaller as time goes by. Can't say that for JavaScript can you?</p>
+<p>Not to mention think the amounts of code takes to replace it:</p>
+<ul>
+<li>React</li>
+<li>Redux</li>
+<li>Babel</li>
+<li>Web Pack</li>
+<li>Flow</li>
+<li>Immutable.js</li>
+<li>lodash</li>
+<li>time travel debugger for redux?</li>
+<li>maybe even Sass</li>
+<li>Libraries to generate SVGs</li>
+<li>momment (dates library)</li>
+</ul>
+<p>That is far harder than one language and a few core libraries.</p>
+<p>Also the community is full of very friendly people and help us never far away. Not to mention a whole series of videos for free on egghead.io</p>
+<h2>What about hiring?</h2>
+<p>We use Elixir which has a small hiring pool and it's only helped us. People want to work in Elm and would probably would attract more rather than less. NoRedInk said that Elm had drastically improved the amount of people that apply in the Q and A at elm conf.</p>
+<p>Not to mention Elm programmers (Elmos?) Are the kinds of people you want to hire: compassionate and smart.</p>
+<p>Also think of the flip side, you'll have to hire less people because the ones you have can be more productive plus you'll have less leaving because the front end makes them happy than sob into their pillow.</p>
+<p>Also see: <a href="http://paulgraham.com/pypar.html" rel="noopener noreferrer">http://paulgraham.com/pypar.html</a></p>
+<h2>Is it worth it? What do I gain?</h2>
+<p>You gain:</p>
+<ul>
+<li>Far better Reliability</li>
+<li><strong>No runtime exceptions!!!</strong> All edge cases must be handled.</li>
+<li>No problems with null / undefined / nan (Maybe has your back)</li>
+<li>Refactoring without fear of forgetting to find all the usages</li>
+<li>Enforced Symantec versioning. Meaning people can't break the public API without bumping the major version. Not to mention you can diff the changes</li>
+<li>Less tests by making things impossible via the type system</li>
+<li>Faster / Leaner</li>
+<li>Faster rendering</li>
+<li>Less code</li>
+<li>Less complied code</li>
+<li>Easier to understand</li>
+<li>less fancy programming language features that inevitably gets into the codebase</li>
+<li>simpler language overall</li>
+<li>Immutability everywhere (Immutable.js gets confusing and goes against everying else in JavaScript)</li>
+<li>New features</li>
+<li>pipes! (|&gt;)</li>
+<li>Option types to help model different scenarios like loading states or other things</li>
+<li>A good easy to understand module system like Elixir</li>
+<li>Tooling like auto complete and looking up docs inline and a <code>go fmt</code> solution</li>
+<li>Record types (enforce fields being there)</li>
+<li>More Beginner Friendly</li>
+<li>Friendly error messages</li>
+<li>Better designed browser APIs</li>
+<li>More like Elixir</li>
+</ul>
+<p>I feel the pros far outweigh the cons</p>
+<h2>Keywords</h2>
+<ul>
+<li><a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

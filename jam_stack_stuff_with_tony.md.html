@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> JAM stack stuff with Tony </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>JAM stack stuff with Tony</h1>
+<ul>
+<li>What are the different parts of the architecture, do we need to pay attention to?
+<ul>
+<li>Do you need templates?</li>
+<li>Do you need CMS?</li>
+</ul>
+</li>
+<li>Static Site Generators
+<ul>
+<li>Jekyl</li>
+<li>Hugo</li>
+<li>Spike</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Github Repo
+<ol>
+<li>Build sever (CI, netlifly, codeship...)</li>
+<li>Hosting (netlifly, s3, github pages...)</li>
+<li>CMS? (dato, pageleaf, netlifly-cms....)</li>
+</ol>
+</li>
+<li>API's
+<ul>
+<li>Phoenix, node....</li>
+</ul>
+</li>
+</ul>
+<h1>Where does the data live?</h1>
+<ul>
+<li>Pageleaf
+<ul>
+<li>Store it in Github (.md or in .json)</li>
+<li>Netlifly picks up build</li>
+<li>Netlifly deploys</li>
+</ul>
+</li>
+<li>Dato
+<ul>
+<li>Store it for you</li>
+<li>Pulll in hitting their API</li>
+<li>Create <code>.md</code> files in the build server (CI)</li>
+</ul>
+</li>
+<li>Custom
+<ul>
+<li>Postgress &amp; Node, API (Dato)</li>
+<li>:( create your own UI modify the data. (maybe use Admin UI generator)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="http://localhost:5000/jam_stack.md" rel="noopener noreferrer">JAM Stack</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

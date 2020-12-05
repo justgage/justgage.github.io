@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Server-Side Mobile App with Live View </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h2>Server-Side Mobile App with Live View</h2>
+<p><a href="https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-js-interop-and-client-controlled-dom" rel="noopener noreferrer">https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html#module-js-interop-and-client-controlled-dom</a></p>
+<p>Desktop app:</p>
+<ul>
+<li>Electron</li>
+<li>NorthWest JS: <a href="https://nwjs.readthedocs.io/en/latest/For%20Users/Package%20and%20Distribute/" rel="noopener noreferrer">https://nwjs.readthedocs.io/en/latest/For%20Users/Package%20and%20Distribute/</a></li>
+</ul>
+<blockquote>
+<p>The reason full-page refreshes often feel slow is not so much because the browser has to process a bunch of HTML sent from a server. Browsers are really good and really fast at that. And in most cases, the fact that an HTML payload tends to be larger than a JSON payload doesn’t matter either (especially with gzipping). No, the reason is that CSS and JavaScript has to be reinitialized and reapplied to the page again. Regardless of whether the files themselves are cached. This can be pretty slow if you have a fair amount of CSS and JavaScript.
+<a href="https://stimulusjs.org/handbook/origin" rel="noopener noreferrer">https://stimulusjs.org/handbook/origin</a></p>
+</blockquote>
+<h1>The logic that "Webview" is terrible isn't the way desktop apps are thought about 🤔💭</h1>
+<p>Its <em>fine</em> to have an Electron app, but as soon as you make a web view on Mobile, it "sucks". Bit of a double standard eh?</p>
+<p>Links:</p>
+<ul>
+<li><a href="http://localhost:5000/elixir_learning_path.md" rel="noopener noreferrer">Elixir Learning Path</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

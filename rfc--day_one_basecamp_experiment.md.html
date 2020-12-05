@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> RFC--Day One Basecamp Experiment </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>RFC--Day One Basecamp Experiment</h1>
+<h2>The Problem</h2>
+<p>Currently our communication is fragmented across an array of tools. There's no real "right" place to talk about stuff so it gets scattered across many apps, most of them using <em>email</em> as their notification service, which most people do't check. As such most written conversations happen in Slack, which would be good except it's <em>also</em> disorganized by design.</p>
+<h2>Why we should do a Basecamp Experiment</h2>
+<p>Our communication tool stack currently looks like this:</p>
+<ol>
+<li>Video Conferencing (<a href="http://localhost:5000/zoom.md" rel="noopener noreferrer">Zoom</a>/Tuple/etc...)</li>
+<li>Slack</li>
+<li>Github Projects</li>
+<li>Google Docs</li>
+<li>Github Issues (Async Communication)</li>
+</ol>
+<p>Seems pretty standard, but I've studied many, many articles about the problems with [[Slack MOC#Articles|Group Chat (namely Slack)]] and <a href="http://localhost:5000/synchronous_communication.md" rel="noopener noreferrer">Synchronous Communication</a> in general. Most major all remote teams make use of what's called "<a href="http://localhost:5000/asynchronous_communication.md" rel="noopener noreferrer">Asynchronous Communication</a>" which has a lot of power to make Remote work work a lot better for us in general and make us more effective than when we were in the office, maybe even more connected.</p>
+<h2>The problem with <a href="http://localhost:5000/zoom.md" rel="noopener noreferrer">Zoom</a></h2>
+<p>Zoom has the same problems as all <a href="http://localhost:5000/synchronous_communication.md" rel="noopener noreferrer">Synchronous Communication</a>, but namely the fact that any <strong>information that's shared in them is locked to that meeting</strong>, meaning you have to be "<a href="https://www.youtube.com/watch?v=WySzEXKUSZw" rel="noopener noreferrer">In the room where it happened</a>", this creates a (unintentional) power dynamic of those, "need to know" and those that don't. At best it makes people feel left out, at worst erodes trust. In a word, it's not <a href="http://localhost:5000/transparency.md" rel="noopener noreferrer">transperent</a>.</p>
+<p>Not only that, because decisions aren't documented you're forced to repeat history, and make your same old mistakes, and second guess decisions that were <em>counter-intuitive</em>, <strong>yet right</strong>.</p>
+<p>In a remote environment this information is even more locked by default because people don't cross pollinate information with <a href="http://localhost:5000/tribal_knowlege.md" rel="noopener noreferrer">Tribal Knowlege</a> as much.</p>
+<p>Yes, you could invite <em>everyone all the time</em>, but usually meetings aren't good with any more than 8 people anyway. And your day would be fragmented <a href="http://localhost:5000/maker's_schedule_v.s._managers_schedule_--_by_paul_gram.md" rel="noopener noreferrer">which is really bad for programmers</a>.</p>
+<p>We could record <em>everything</em>, but video isn't really "searchable" and takes forever to consume, wastes tons of hosting costs (assuming you want it to be private) and is basically impossible to skim.</p>
+<p>We could always write meeting notes, <em>which you should, if you have a meeting</em>, but it's more work that people will most likely skip. It's also unnecessary if the communication happened in a written form anyway.</p>
+<p>Overall <a href="http://localhost:5000/zoom.md" rel="noopener noreferrer">Zoom</a>, is good for <a href="http://localhost:5000/reclaming_conversation.md" rel="noopener noreferrer">Reclaming Conversation</a>, but is <em>disruptive</em>, and anti-<a href="http://localhost:5000/transparency.md" rel="noopener noreferrer">transparency</a>.</p>
+<h2>2. The problem with Slack</h2>
+<p><a href="http://localhost:5000/slack.md" rel="noopener noreferrer">Slack</a> is our primary form of written communication but it's "Group Chat" model, is inherently disorganized. How so? Well think about it, Slack encourages people to only read the most new information. Is the newest information always the most important to see?</p>
+<h2>3. Why Basecamp</h2>
+<ol>
+<li><a href="http://localhost:5000/basecamp.md" rel="noopener noreferrer">Basecamp</a> is a good backbone of communication and <a href="http://localhost:5000/single_source_of_truth.md" rel="noopener noreferrer">Single Source of Truth</a> that's approachable to technical and non-technical people alike.</li>
+<li><a href="http://localhost:5000/basecamp.md" rel="noopener noreferrer">Basecamp</a> can combine many tools we're using</li>
+<li><a href="http://localhost:5000/basecamp's_notifications.md" rel="noopener noreferrer">Basecamp's notifications</a> make it more <a href="http://localhost:5000/sticky.md" rel="noopener noreferrer">sticky</a> than <a href="http://localhost:5000/github_projects.md" rel="noopener noreferrer">Github Projects</a>
+<ul>
+<li>Nobody ever checks their notifications in Github and when they do it's days or weeks later</li>
+<li>People's notifications in Github are stuffed full of spam from other 3rd part stuff</li>
+<li>There's no Github desktop app</li>
+</ul>
+</li>
+<li><a href="http://localhost:5000/the_mystery_in_your_inbox_slack's_notification_v.s._basecamp.md" rel="noopener noreferrer">Slack's notifications are also bad, but for different reasons</a></li>
+<li>This means we ONLY use Slack and Zoom for communication</li>
+</ol>
+<h2>Proposal</h2>
+<ul>
+<li>Everyone uses Basecamp for it's project management, communication docs (google docs can be used, but they have to be listed in the files section)</li>
+<li>Experiment will last for 30 days
+<ul>
+<li>This seems like a long time, but we need to give people time to <a href="http://localhost:5000/give_it_5_minutes.md" rel="noopener noreferrer">Give it 5 Minutes</a>, it's different so people aren't going to like it at first</li>
+</ul>
+</li>
+<li>If the experiment works, we keep on using it, if it fails, we export our data and back it up to other sources.</li>
+</ul>
+<h2>Objections I'm Guessing</h2>
+<ol>
+<li>"<strong>What we're working with works, why should we have to change?</strong>"
+<ol>
+<li>Well I think it works to some degree, but I think we could be more effective. Hence the reason I think we should <em>try</em> this change, if we don't like it, we can go back!</li>
+</ol>
+</li>
+<li><strong>"But I like <a href="http://localhost:5000/kanban_boards.md" rel="noopener noreferrer">Kanban boards</a>!"</strong>
+<ol>
+<li>Yes, lots of people do, but they have lots of problems, such as <a href="http://localhost:5000/kanban_boards_and_motivation.md" rel="noopener noreferrer">motiviation</a> and not having a place for <a href="http://localhost:5000/a_visible_project.md" rel="noopener noreferrer">a visible project</a> with <a href="http://localhost:5000/high_level_goals.md" rel="noopener noreferrer">high level goals</a>. Basecamp solves this with it's <a href="http://localhost:5000/2020-11-20t1211_-_the_value_of_zoom_in_basecamp.md" rel="noopener noreferrer">it's nested nature</a>.</li>
+<li>Also, you can emulate the "flow based" with todo groups</li>
+</ol>
+</li>
+<li>"<strong><a href="http://localhost:5000/answering_paul's_argument_against_basecamp.md" rel="noopener noreferrer">Answering Paul's Argument against Basecamp</a></strong>"
+<ol>
+<li>"We need fewer barriers for collaboration, not more"
+<ol>
+<li>I agree, this is why for this experiment we would have EVERYONE stop using Slack, this way we don't have a problem with people being split between the apps and they can try Basecamp in a more realistic situation.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+
+    </div>
+</body>
+
+</html>

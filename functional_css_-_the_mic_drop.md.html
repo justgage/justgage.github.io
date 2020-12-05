@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Functional CSS - The mic drop </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Functional CSS - The mic drop 🎤⏬</h1>
+<p>Questions of Functional CSS:</p>
+<ol>
+<li>Inline styles?</li>
+<li>Ugly</li>
+<li>Perf?</li>
+<li></li>
+</ol>
+<hr>
+<p>What is Functional CSS?</p>
+<p>Instead of applying a single class to an element</p>
+<pre><code>&lt;div class="tan-box"&gt;
+	This is a tan box
+&lt;/div&gt;
+</code></pre>
+<p>you apply lots!</p>
+<pre><code>&lt;div className="bg-tan p-5 text-sm font-bold"&gt;
+  This is a tan box
+&lt;/div&gt;
+</code></pre>
+<h2>First Question, isn't this just inline styles???</h2>
+<p>No it has the following advantages over them:</p>
+<pre><code>1. The CSS specificity is even, little to know overriding
+2. You can do breakpoints, hovers, animations and everything else that isn't possible with inline styles API
+3. Everything is aligned to a design system (most important)
+4. The overall bundle size is lower
+</code></pre>
+<p>The thing that is the same is:
+1. No specificity wars
+2. No danger of picking the same name as someone else</p>
+<h2>But I don't like this my HTML looks bad now</h2>
+<p>Well you can do a couple of things to make it look better.</p>
+<ol>
+<li>Put it into a component:</li>
+</ol>
+<pre><code>&lt;TanBox /&gt;
+</code></pre>
+<ol>
+<li>Break it up on multiple lines</li>
+</ol>
+<pre><code>&lt;div className="
+bg-tan
+p-5
+text-sm
+font-bold
+"&gt;
+  This is a tan box
+&lt;/div&gt;
+</code></pre>
+<h2>Yeah but is anyone using this?</h2>
+<p>How about FACEBOOK, and Mapbox and a bunch of other people</p>
+<h2>Looks like a lot of work!</h2>
+<p>Tailwind!</p>
+<p><a href="http://localhost:5000/talks.md" rel="noopener noreferrer">talks</a> <a href="http://localhost:5000/functional_css.md" rel="noopener noreferrer">Functional CSS</a></p>
+
+    </div>
+</body>
+
+</html>

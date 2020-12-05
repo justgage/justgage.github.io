@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Understanding `lift` </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Understanding <code>lift</code></h1>
+<p>Thanks to the answers from Scott Sauyet and Bergi, I wrapped my head around it. In doing so, I felt there were still hoops to jump to put all the pieces together. I will document some questions I had in the journey, hope it could be of help to some.</p>
+<p>Here's the example of <code>R.lift</code> we try to understand:</p>
+<pre><code>var madd3 = R.lift((a, b, c) =&gt; a + b + c);
+madd3([1,2,3], [1,2,3], [1]); //=&gt; [3, 4, 5, 4, 5, 6, 5, 6, 7]
+</code></pre>
+<p>To me, there are <strong>three questions to be answered before understanding it</strong>.</p>
+<ol>
+<li><a href="https://github.com/fantasyland/fantasy-land" rel="noopener noreferrer">Fantasy-land</a>'s <a href="https://github.com/fantasyland/fantasy-land#apply" rel="noopener noreferrer"><code>Apply</code></a> spec (I will refer to it as <code>Apply</code>) and what <code>Apply#ap</code> does</li>
+<li>Ramda's <a href="http://ramdajs.com/docs/%5Bap%5D(ap.md)" rel="noopener noreferrer"><code>R.ap</code></a> implementation and what does <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array" rel="noopener noreferrer"><code>Array</code></a> has to do with the <code>Apply</code> spec</li>
+<li>What role does currying play in <a href="http://ramdajs.com/docs/%5Blift%5D(lift.md)" rel="noopener noreferrer"><code>R.lift</code></a></li>
+</ol>
+<h3>Understanding the <code>Apply</code> spec</h3>
+<p>In fantasy-land, an object implements <a href="https://github.com/fantasyland/fantasy-land#apply" rel="noopener noreferrer"><code>Apply</code></a> spec when it has an <code>ap</code> method defined (that object also has to implement <a href="https://github.com/fantasyland/fantasy-land#functor" rel="noopener noreferrer"><code>Functor</code></a> spec by defining a <code>map</code> method).</p>
+<p>The <code>ap</code> method has the following signature:</p>
+<pre><code>ap :: Apply f =&gt; f a ~&gt; f (a -&gt; b) -&gt; f b
+</code></pre>
+<p>In <a href="https://github.com/fantasyland/fantasy-land#type-signature-notation" rel="noopener noreferrer">fantasy-land's type signature notation</a>:</p>
+<ul>
+<li><code>=&gt;</code> declares type constraints, so <code>f</code> in the signature above refers to type <code>Apply</code></li>
+<li><code>~&gt;</code> declares <em>method</em> declaration, so <code>ap</code> should be a function declared on <code>Apply</code> which wraps around a value which we refer to as <code>a</code> (we will see in the example below, some <a href="https://github.com/fantasyland/fantasy-land/blob/master/implementations.md" rel="noopener noreferrer">fantasy-land's implementations</a> of <code>ap</code> are not consistent with this signature, but the idea is the same)</li>
+</ul>
+<p>Let's say we have two objects <code>v</code> and <code>u</code> (<code>v = f a; u = f (a -&gt; b)</code>) thus this expression is valid <code>v.ap(u)</code>, some things to notice here:</p>
+<ul>
+<li><code>v</code> and <code>u</code> both implement <code>Apply</code>. <code>v</code> holds a value, <code>u</code> holds a function but they have the same 'interface' of <code>Apply</code> (this will help in understanding the next section below, when it comes to <code>R.ap</code> and <code>Array</code>)</li>
+<li>The value <code>a</code> and function <code>a -&gt; b</code> are ignorant of <code>Apply</code>, the function just transforms the value <code>a</code>. It's the <code>Apply</code> that puts value and function inside the container and <code>ap</code> that extracts them out, invokes the function on the value and puts them back in.</li>
+</ul>
+<h3>Understanding <code>Ramda</code>'s <code>R.ap</code></h3>
+<p>The signature of <a href="http://ramdajs.com/docs/%5Bap%5D(ap.md)" rel="noopener noreferrer"><code>R.ap</code></a> has two cases:</p>
+<ol>
+<li><code>Apply f =&gt; f (a → b) → f a → f b</code>: This is very similar to the signature of <code>Apply#ap</code> in last section, the difference is how <code>ap</code> is invoked (<code>Apply#ap</code> vs. <code>R.ap</code>) and the order of params.</li>
+<li><code>[a → b] → [a] → [b]</code>: This is the version if we replace <code>Apply f</code> with <code>Array</code>, remember that the value and function has to be wrapped in the same container in the previous section? That's why when using <code>R.ap</code> with <code>Array</code>s, the first argument is a list of functions, even if you want to apply only one function, put it in an Array.</li>
+</ol>
+<p>Let's look at one example, I'm using <code>Maybe</code> from <a href="https://github.com/ramda/ramda-fantasy" rel="noopener noreferrer"><code>ramada-fantasy</code></a>, which implements <code>Apply</code>, one inconsistency here is that <a href="https://github.com/ramda/ramda-fantasy/blob/0.6.0/src/Maybe.js#L63" rel="noopener noreferrer"><code>Maybe#ap</code></a>'s signature is: <code>ap :: Apply f =&gt; f (a -&gt; b) ~&gt; f a -&gt; f b</code>. Seems some other <code>fantasy-land</code> implementations also follow this, however, it shouldn't affect our understanding:</p>
+<pre><code>const R = require('ramda');
+const Maybe = require('ramda-fantasy').Maybe;
+
+const a = Maybe.of(2);
+const plus3 = Maybe.of(x =&gt; x + 3);
+const b = plus3.ap(a);  // invoke Apply#ap
+const b2 = R.ap(plus3, a);  // invoke R.ap
+
+console.log(b);  // Just { value: 5 }
+console.log(b2);  // Just { value: 5 }
+</code></pre>
+<h3>Understanding the example of <code>R.lift</code></h3>
+<p>In <a href="http://ramdajs.com/docs/%5Blift%5D(lift.md)" rel="noopener noreferrer"><code>R.lift</code></a>'s example with arrays, a function with arity of 3 is passed to <code>R.lift</code>: <code>var madd3 = R.lift((a, b, c) =&gt; a + b + c);</code>, how does it work with the three arrays <code>[1, 2, 3], [1, 2, 3], [1]</code>? Also note that it's not curried.</p>
+<p>Actually inside <a href="https://github.com/ramda/ramda/blob/v0.24.0/src/liftN.js" rel="noopener noreferrer">source code of <code>R.liftN</code></a> (which <code>R.lift</code> delegates to), the function passed in is <em>auto-curried</em>, then it iterates through the values (in our case, three arrays), reducing to a result: in each iteration it invokes <code>ap</code> with the curried function and one value (in our case, one array). It's hard to explain in words, let's see the equivalent in code:</p>
+<pre><code>const R = require('ramda');
+const Maybe = require('ramda-fantasy').Maybe;
+
+const madd3 = (x, y, z) =&gt; x + y + z;
+
+// example from R.lift
+const result = R.lift(madd3)([1, 2, 3], [1, 2, 3], [1]);
+
+// this is equivalent of the calculation of 'result' above,
+// R.liftN uses reduce, but the idea is the same
+const result2 = R.ap(R.ap(R.ap([R.curry(madd3)], [1, 2, 3]), [1, 2, 3]), [1]);
+
+console.log(result);  // [ 3, 4, 5, 4, 5, 6, 5, 6, 7 ]
+console.log(result2);  // [ 3, 4, 5, 4, 5, 6, 5, 6, 7 ]
+</code></pre>
+<p>Once the expression of calculating <code>result2</code> is understood, the example will become clear.</p>
+<p>Here's another example, using <code>R.lift</code> on <code>Apply</code>:</p>
+<pre><code>const R = require('ramda');
+const Maybe = require('ramda-fantasy').Maybe;
+
+const madd3 = (x, y, z) =&gt; x + y + z;
+const madd3Curried = Maybe.of(R.curry(madd3));
+const a = Maybe.of(1);
+const b = Maybe.of(2);
+const c = Maybe.of(3);
+const sumResult = madd3Curried.ap(a).ap(b).ap(c);  // invoke [ap](ap.md) on Apply
+const sumResult2 = R.ap(R.ap(R.ap(madd3Curried, a), b), c);  // invoke R.ap
+const sumResult3 = R.lift(madd3)(a, b, c);  // invoke R.lift, madd3 is auto-curried
+
+console.log(sumResult);  // Just { value: 6 }
+console.log(sumResult2);  // Just { value: 6 }
+console.log(sumResult3);  // Just { value: 6 }
+</code></pre>
+<p>A better example suggested by Scott Sauyet in the comments (he provides quite some insights, I suggest you read them) would be easier to understand, at least it points the reader to the direction that <code>R.lift</code> calculates the Cartesian product for <code>Array</code>s.</p>
+<pre><code>var madd3 = R.lift((a, b, c) =&gt; a + b + c);
+madd3([100, 200], [30, 40, 50], [6, 7]); //=&gt; [136, 137, 146, 147, 156, 157, 236, 237, 246, 247, 256, 257]
+</code></pre>
+<p>Hope this helps.</p>
+<p>Keywords:  <a href="http://localhost:5000/functional_programming.md" rel="noopener noreferrer">Functional Programming</a>, <a href="http://localhost:5000/monads.md" rel="noopener noreferrer">Monads</a></p>
+
+    </div>
+</body>
+
+</html>

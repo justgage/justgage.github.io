@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> JSON Decoders talk </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>JSON Decoders talk</h1>
+<ul>
+<li>Just get <a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a> installed with create-elm-app</li>
+<li>Basic Syntax of <a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a></li>
+<li>Why JSON decoders?
+<ul>
+<li>Basically all external services talk in JSON</li>
+<li>Elm's types are close to JSON but are not the same</li>
+<li>There's no guerentee that the external thing will return things in the right form. To be safe we have to be defensive</li>
+</ul>
+</li>
+<li>What is a JSON decoder
+<ul>
+<li>It's a list of instructions on how to turn JSON into elm types</li>
+<li>It's a pure data structure not a function, although it can contain functions for the more difficult parts</li>
+<li>It contains two values:
+<ul>
+<li>Json to be queried and prodded at</li>
+<li>A <strong>single value</strong> of the decoders result so far which can be in one of 3 states:
+<ul>
+<li>Nothing (you haven't began decoding)</li>
+<li>A decoded value</li>
+<li>An Error</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a href="http://localhost:5000/talks.md" rel="noopener noreferrer">talks</a> <a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a></p>
+
+    </div>
+</body>
+
+</html>

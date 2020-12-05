@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Kanban Cards are a bunch of directions, but you need a MAP </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Kanban Cards are a bunch of directions, but you need a MAP</h1>
+<p>I wrote this up as an attempt to make it easier to describe the problems with never-ended Kanban boards. Would love some feedback to see what everyone thinks</p>
+<hr>
+<h2>Everyone driving the car</h2>
+<p>the point of doing a "project" is that the company wants to make it to a "destination". Imagine that your whole team is in a car and the programmers are in the driver's seat.</p>
+<p>At first, everyone would just yell out where to go, backseat driver style, but this just stressed out the driver and they wouldn't know who to listen to and subsequently made no progress.</p>
+<h2>Taking Turns</h2>
+<p>They solve this arguments by taking turns picking where to go. Each person picks a close-by destination, write it on a sticky-note and place it in a queue. The driver goes to them in order.</p>
+<p>For instance:</p>
+<ul>
+<li>Ron: "Go to Walmart on main so I can get an apple"</li>
+<li>Jess: "Go to the park on 27nd street, there's some low hanging fruit"</li>
+<li>Ron: "Go back to Walmart on Main because I need another shrubbery"</li>
+<li>Jerry: "Go to the car shop on 89th street, we need some fresh tires to avoid roll resistance"</li>
+<li>Jess: "Drive to this gas station for some fuel, there's one right here"</li>
+</ul>
+<h2>Fair, but not <a href="http://localhost:5000/effective.md" rel="noopener noreferrer">effective</a></h2>
+<p>This helps with the driver getting stressed out but also has some problems. Firstly, it's very unfocused. <strong>Everyone gets a turn to pick where to go, which is "fair" but isn't very <a href="http://localhost:5000/effective.md" rel="noopener noreferrer">effective</a>.</strong></p>
+<p>All the different sticky-notes, while detailed, don't get them anywhere in particular when you added them up. The list is so verbose also so it took a very long time to read.</p>
+<p>Secondly, there's no real check on each of these instruction cards to see if all of them are <em>truly necessary</em>. Anyone can just throw a card into the list that wants to. Sorting and throwing out bad ideas would help, but this is very time-intensive due to the sheer number of sticky-notes and the fast rate at which they are added.</p>
+<h2>A map that everyone shares</h2>
+<p>A better system is to have <strong>a map that everyone shares</strong>. Not only that but lay out a clear guideline on <em><strong>where</strong></em> exactly you want to go:</p>
+<blockquote>
+<p><em>"We want to discover Atlantis</em> 🤯*"*</p>
+</blockquote>
+<p>Wow! Sounds exciting, but nobody knows where Atlantis is. This would easily turn into a wild goose chase that could take years with no progress, there's just too much risk and too much ambiguity. Maybe pick something a bit more reasonable.</p>
+<blockquote>
+<p><em>"We want to go to the Grand Canyon and go poll vaulting"</em></p>
+</blockquote>
+<p>Much better! This is very good because as the driver thinks of where to go and deals with unexpected traffic problems he can make efficient adjustments. It's also nice because it becomes a clear way to measure if you're going in the right direction or not. While it might be tempting to take this and convert it back into the sticky note system this causes everyone to turn off their brains and blindly follow the instructions and it's unclear if each sticky note is contributing to the main goal or a distraction from it.</p>
+<h2>Deadlines</h2>
+<p>Another great thing to add to your travel plan is an arrival time. For example:</p>
+<blockquote>
+<p><em>"We want to go the Grand Canyon and go pole vaulting by September 5th (3 days away)"</em></p>
+</blockquote>
+<p>While it may be tempting to again try to just add up all sub-destinations and expected stops to figure out how long it will take to get there, it doesn't work because if you ask, "what's all the stops along the way everyone <em>wants</em> to make?" people will all contribute their 10 tickets and you'll end up with a month-long road trip which is far more than you bargained for.</p>
+<p>Counterintuitive as it may seem but adding a deadline <em>before</em> you plan all your stops (so long as it's unrealisticly short) actually helps a lot because it makes everyone in the car think twice before requesting any more stops along the way.</p>
+<h2>Making this more concrete</h2>
+<p>The problem with Kanban boards is they don't show you <strong>where you're going</strong>, only a bunch of "driving directions". They don't have a concept of a project because they make the assumption that you've already broken down the project (put your project description through a shredder) and that all the tickets that are in the sprint are cohesive and not just a bunch of competing priorities.</p>
+<p>However, this is a bad assumption. Organizations are made up of lots of people, and as such, each department (support, developers, marketing, the executives, etc...) usually gets a relatively equal say in what tasks get prioritized. As such this means the development team gets pulled in many directions and often makes very slow progress because of it.</p>
+<h2>See also:</h2>
+<ul>
+<li><a href="http://localhost:5000/fixed_time,_variable_scope.md" rel="noopener noreferrer">fixed time, variable scope</a></li>
+<li><a href="http://localhost:5000/agile_deathmarch.md" rel="noopener noreferrer">Agile deathmarch</a></li>
+<li><a href="http://localhost:5000/pitches.md" rel="noopener noreferrer">Pitches</a></li>
+<li><a href="http://localhost:5000/timebox.md" rel="noopener noreferrer">timebox</a></li>
+<li><a href="http://localhost:5000/time_is_money.md" rel="noopener noreferrer">Time is money</a></li>
+<li><a href="http://localhost:5000/agile_is_about_productivity,_basecamp_is_about_effectiveness.md" rel="noopener noreferrer">Agile is about productivity, Basecamp is about effectiveness</a></li>
+</ul>
+<h1>Untitled recording.webm <a href="http://localhost:5000/untitled_recording.webm.md" rel="noopener noreferrer">🔖</a></h1>
+<h2><em>this file hasn't been written, it's a stub</em></h2>
+<hr>
+<p><em><strong>Backlinks</strong></em>:</p>
+<ul>
+<li><a href="http://localhost:5000/agile_is_about_productivity,_basecamp_is_about_effectiveness.md" rel="noopener noreferrer">Agile is about productivity, Basecamp is about effectiveness</a></li>
+<li><a href="http://localhost:5000/github_projects_navigation_v.s._basecamp.md" rel="noopener noreferrer">Github Projects Navigation V.S. Basecamp</a></li>
+<li><a href="http://localhost:5000/anyone_can_throw_in_a_ticket.md" rel="noopener noreferrer">anyone can throw in a ticket</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

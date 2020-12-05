@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Graph Databases with Dgraph </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Graph Databases with <a href="http://localhost:5000/dgraph.md" rel="noopener noreferrer">Dgraph</a></h1>
+<h2>What is Dgraph?</h2>
+<ul>
+<li><a href="http://localhost:5000/dgraph.md" rel="noopener noreferrer">Dgraph</a> is an open source, distributed, graph database... let's pick that apart
+<ul>
+<li>Graph
+<ul>
+<li>Nodes and Edges (Things and Relationships)</li>
+<li>Each node can point to another node or a "value" such as a string, integer, etc...</li>
+</ul>
+</li>
+<li>Database
+<ul>
+<li>Stores values long term</li>
+<li>Has guarantees about integrity.</li>
+</ul>
+</li>
+<li>Distributed
+<ul>
+<li>Automatically handles spreading the work of storing and querying across multiple servers</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>What's a Graph Database? Or Why don't I just use Postgres?</h2>
+<p>Relational databases compute their joins at runtime using an index. Every time you have to do a join you have to lookup right before you do it. They also require you to be very explicit about your data model before you store it.</p>
+<blockquote>
+<p>Whenever you run the equivalent of a JOIN operation, the database just uses this list and has direct access to the connected nodes, eliminating the need for a expensive search / match computation.</p>
+</blockquote>
+<h2>What's so cool about Dgraph</h2>
+<blockquote>
+<p>It aims at being <strong>an every day driver</strong> of a database that's just easier to use, yet still fast.</p>
+</blockquote>
+<blockquote>
+<p>It makes joins as simple as breathing, and <em>all</em> your data normalized. This means that there's almost no <code>nulls</code></p>
+</blockquote>
+<blockquote>
+<p>Did I mention it's free and open source?</p>
+</blockquote>
+<h3>Other reasons:</h3>
+<ul>
+<li>Helps you understand GraphQL better</li>
+<li>More natural way to express many complex ideas</li>
+<li>Can be faster to do many joins</li>
+<li>Query language is much more friendly than SQL for many things.</li>
+<li>Most permissive of all data structures, you can model trees, linked-lists,  maps, or singletons easily.</li>
+<li>There's no way to make a big table, everything must be broken up.</li>
+</ul>
+<h2>What's not so cool about Dgraph</h2>
+<ol>
+<li>It's kind of in <em>beta</em> status. It just nearly turned 1.0. Don't expect it to replace Postgres just yet.</li>
+<li>As such there's not a Ruby or Elixir client that's 100% up to date (although it wouldn't be hard to write one)</li>
+</ol>
+<h2>Re-learning to model data</h2>
+<p>What if you took all your tables and broke them up into little pieces till they where just a big pile of cells, they take those cells and draw lines between them to show their relationships with each other. This is what you do with Graph databases.</p>
+<p>Things you don't need:</p>
+<ol>
+<li>Rows, Columns, Schema's</li>
+<li>Join Tables, etc...</li>
+</ol>
+<h2>Query language 101</h2>
+<h2>Demo</h2>
+<ul>
+<li>Show how it can solve problems we have, on big data.</li>
+</ul>
+<p><a href="http://localhost:5000/talks.md" rel="noopener noreferrer">talks</a></p>
+
+    </div>
+</body>
+
+</html>

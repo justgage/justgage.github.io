@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Why Elm is good for us </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Why Elm is good for us.</h1>
+<h2>1. JavaScript is hard to keep maintainable over time</h2>
+<ul>
+<li>When you try to refactor things you rely on the fact that you can <code>ag</code> it effectively.</li>
+<li>Runtime exceptions are hard to find</li>
+</ul>
+<p>Elms solves this because:</p>
+<ul>
+<li>It pushes all runtime exceptions to compile time</li>
+<li>When Refactoring it's easy to know if it broke something, it's a compile time error</li>
+</ul>
+<h2>2. <a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a> is simpler than JavaScript + all the frameworks</h2>
+<ul>
+<li>Elm is a small language, far smaller than JavaScript</li>
+<li>Elm has React and Redux built in. There's no question on which framework to use or any temptation to stray from the right path</li>
+<li>You have to be a lot less disciplined to keep your code working.</li>
+</ul>
+<h2>3. Elm has better tooling than JavaScript</h2>
+<h2>4. Compile time is shorter</h2>
+<p>Compiling all the JavaScript code takes forever, Elm is a lot faster which would aid in developer productivity.</p>
+<h2>4. It's a lot less setup</h2>
+<ul>
+<li>There's no standard way to set up a React project. It's hard to wire everything together</li>
+</ul>
+<h2>5. Added benefits</h2>
+<p>The time traveling debugger even works with side-effecting things. This makes QAing a lot nicer.</p>
+
+    </div>
+</body>
+
+</html>

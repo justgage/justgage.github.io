@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Functional CSS </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Functional CSS</h1>
+<h2>What is it?</h2>
+<p>it makes HTML powerful enough to define its style not just content.</p>
+<p>It usually has tons of basic classes for typeography, spacing, color, grid systems, and more. They tend to have obvious names like <code>.red</code> or <code>.hide</code> align many use shorthand like <code>.dn</code> for <code>display none</code>.</p>
+<p>For convincing on why this is important, <a href="http://mrmrs.io/writing/2016/03/24/scalable-css/" rel="noopener noreferrer">read this article</a> by John Gold. Don't just skim it, read the whole thing, every word.</p>
+<h2>Problem with CSS</h2>
+<p>originally for "style sheets" aka: you want the same content to look different depending on the theme</p>
+<p>cascading was supposed to be awesome at styling components in complex ways. Unfortunately it accomplished that was "complex", in the bad sense, and lead to hard to debug code (where is this style coming from? How do I override it?)</p>
+<p>CSS was created with this assumption that the style was more likely to change than the HTML. That you where more likely to retheme HTML than add a new type of UI. That's a bad bet. Rethemes happen, just not very often. HTML is not usually set in stone either.</p>
+<h2>Pros:</h2>
+<ul>
+<li>speed
+<ul>
+<li>the CSS the browser loads is almost exactly the amount that it uses. Or pretty darn close.</li>
+<li>your CSS files are tiny!</li>
+</ul>
+</li>
+<li>your CSS is reusable and obvious</li>
+<li>Better design
+<ul>
+<li>it keeps a natural rythm to the page</li>
+<li>easier to make responsive</li>
+<li>easier for designers to make something easy to port</li>
+</ul>
+</li>
+<li>scalable
+<ul>
+<li>no cascade (confusing and error prone, avoids using long names to override other styles)</li>
+<li>your CSS file stops growing after a while</li>
+</ul>
+</li>
+<li>more likely to be reused
+<ul>
+<li>it's easy to find patterns in other HTML and reuse it.</li>
+</ul>
+</li>
+<li>faster development</li>
+<li>less context switching</li>
+<li>natural browser compatibility</li>
+<li>you can use it easily on plain HTML files which is great for marketing websites and prototyping</li>
+<li>doesn't require a build step usually because you rarely change css.</li>
+<li>it's flexible enough to be used across all your apps. Again less context switching</li>
+<li>realistic</li>
+<li>Takes into account the way CSS is developed</li>
+<li>let's you just get your JIRA ticket done by slapping on a few classes rather than appending css to the bottom of the file.</li>
+<li>let's you develop in the chrome debugger by changing class names and quickly seeing how it reacts. Then it's straightforward to copy it over.</li>
+<li>Flexible
+<ul>
+<li>makes a sort of Lodash for css.</li>
+</ul>
+</li>
+</ul>
+<h2>Cons:</h2>
+<ul>
+<li>"pollutes" class props of HTML with lots of names instead of just one</li>
+<li>you have to wrap css itself in many cases such as <code>float: right</code> -&gt; <code>float-right</code> which provides a small level of indirection</li>
+<li>still pollutes the global scope with it's few selectors (all CSS is pretty much global though, css modules just generate unlikely names)</li>
+<li>many times have cryptic class names that you have to memorize (but once you do it's easy)</li>
+</ul>
+<p>Tags:
+css, functional-programing</p>
+<hr>
+<p><em><strong>Backlinks</strong></em>:</p>
+<ul>
+<li><a href="http://localhost:5000/why_your_reasonml_evangelism_isn't_working_references.md" rel="noopener noreferrer">Why your ReasonML evangelism isn't Working (references)</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

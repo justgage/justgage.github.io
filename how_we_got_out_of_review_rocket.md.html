@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> How we got out of Review Rocket </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>How we got out of Review Rocket</h1>
+<h2>Background</h2>
+<p>When we first built MindFlayer we had the question</p>
+<blockquote>
+<p>Do we put our data in our own database? Or do we put it in Review Rocket</p>
+</blockquote>
+<p>Ultimately we chose to put it into Review Rocket because it helped us to join to the Organization table to verify that the widget is never not connected to an Org and so we could join to Locations which lets us be more normalized.</p>
+<p>Normalized means that any piece of data is only stored in one place so when that place updates, all the other places are consistent. For example <strong>if you change the name of a Location, that change will reflect everywhere immediately.</strong> This is a really nice property to have, however it comes at a cost...</p>
+<h2>CAP choices 🧢</h2>
+<p>Normalized is great, and consistency is great, but it comes at the cost of Availability. So the CAP theorem says that out of these 3 options:</p>
+<ul>
+<li>C: Consistency, all data is in sync at all times. Meaning if you read the same piece of data from two places it will match up (Location's name)</li>
+<li>A: Availability, you can get that data at any point in time, even during a network partition.</li>
+<li>P: Partition Tolerance, if the network fails and your databases can't talk to each other, things can still be written and read (maybe not all the data)</li>
+</ul>
+<p>You can only choose 2. We have chose C and P. However it wasn't the right choice for our needs.</p>
+<h2>Being more "Abnormal"</h2>
+<p>Turns out Webchat really needs <strong>availibility</strong></p>
+<p><a href="http://localhost:5000/mindflayer.md" rel="noopener noreferrer">mindflayer</a></p>
+
+    </div>
+</body>
+
+</html>

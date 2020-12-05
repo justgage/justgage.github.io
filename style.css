@@ -1,0 +1,256 @@
+html {
+  background-color: white;
+}
+
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+pre,
+code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  padding: 0.25rem;
+  border-radius: 0.125rem;
+}
+
+pre {
+  padding: 0.5rem;
+  line-height: 1.25;
+  overflow-x: scroll;
+}
+
+a {
+  color: #3498db;
+}
+
+a:visited {
+  color: #4338db;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #2980b9;
+}
+
+.modest-no-decoration {
+  text-decoration: none;
+}
+
+html {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  line-height: 1.85;
+}
+
+p,
+.modest-p {
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 1.414rem 0 0.5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+h4,
+.modest-h4 {
+  font-size: 1;
+}
+
+h5,
+.modest-h5 {
+  font-size: 1;
+}
+
+h6,
+.modest-h6 {
+  font-size: 1;
+}
+
+small,
+.modest-small {
+  font-size: 0.707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+
+@import url(http://fonts.googleapis.com/css?family=Arimo:700,700italic);
+
+html {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 18px;
+  max-width: 100%;
+}
+
+.main {
+  font-weight: 300;
+  margin: 0 auto;
+  max-width: 30rem;
+  line-height: 1.45;
+  padding: 0.25rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Arimo, Helvetica, sans-serif;
+  opacity: 0.5;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+blockquote {
+  border-left: 8px solid #fafafa;
+  padding: 1rem;
+}
+
+pre,
+code {
+  background-color: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    /* filter: invert(1) hue-rotate(180deg); */
+    background-color: #4158d0;
+    background-attachment: fixed;
+    background-color: rgb(6, 0, 59);
+    color: rgb(255, 187, 249);
+  }
+
+  a {
+    color: lightcoral;
+  }
+
+  a:visited {
+    color: rgb(170, 87, 87);
+  }
+
+  nav {
+    background-color: transparent !important;
+  }
+
+  pre,
+  code {
+    background-color: #212453;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    filter: unset;
+    color: #444;
+  }
+}

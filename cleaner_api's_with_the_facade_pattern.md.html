@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Cleaner API's with the Facade Pattern </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Cleaner API's with the Facade Pattern</h1>
+<p><a href="http://localhost:5000/my_essays_moc.md" rel="noopener noreferrer">My Essays MOC</a></p>
+<h1>Cleaner API's with the Facade Pattern</h1>
+<hr>
+<h2>title: "Saner apps with the Facade Pattern"
+date: "2019-11-11T17:00:00.00Z"
+banner: ./banner.jpg
+author: gage-peterson
+category: patterns</h2>
+<h2>The Heavy Trunk</h2>
+<p>One day the trunk of my 2005 Toyota Camry just got stuck. It was a very old car, but had been very reliable in the past so it was a bit surprising. My wife showed me trunk made a grinding sound when you opened and closed it. I found trunk had become unattached this long metal bar that acted as the spring. This metal bar had the purpose of making the trunk float up when you opened it and stay open when you where getting things out. Now it was broken. I tried, but was unable to fix it and as such it became a guillotine for hands. Not only that, it was also super heavy to lift, far more than I would have assumed.</p>
+<p>Cars are a great example of a good abstraction. Their interface is simple yet they are complex on the inside. The trunk perhaps is the simplest part of the car yet even this was quite complex when I started looking at the implementation details. It literally hid the weight of the trunk from me for years.  It just magically floated up and that's all I knew.</p>
+<h2>The power of an Interface</h2>
+<p>The idea of an "interface" (also called an "API") have existed for a very long time in software as well. Mainly because, like cars, software tends to be very complex on the inside yet often provide a very simplified interface on the outside.</p>
+<h3>Hides complexity</h3>
+<p>The best interfaces hide complexity entirely so that user will never need to "look in the hood" to know how to drive. Otherwise the abstraction would be very unhelpful, you have to be an expert mechanic to even use the thing. This is not what you want. I think this quote embodies it well:</p>
+<blockquote>
+<p>The purpose of abstraction is not to be vague, but to create a new semantic
+level in which one can be absolutely precise.</p>
+<p>~ Edsger Dijkstra</p>
+</blockquote>
+<p>A car's steering wheel is this way. You <em>could</em> say: "please rotate the tire-rod mover counter clockwise 20 degrees" but you don't have to, you can just say: "turn left here!".</p>
+<h3>Unification</h3>
+<p>The other cool part of an interface is that is has "combining power". Meaning it can help bring many different parts of a machine all together into one. For instance both the steering wheel and the brakes are completely different parts of the car. Even the stereo and the heat are right next to each other in the interface, yet are completely separate subsystems. The interface of the car combines them together in a seamless interface.</p>
+<h2>The Facade Pattern</h2>
+<p>There are many ways to create interfaces. Most programming languages have the idea of "public" functions. In elixir you can change a function to be private to the file by just changing a <code>def</code> to a <code>defp</code>. Yet, these constructs only work on a file level. But what happens if you want to hide <em>a lot of files</em> under one interface? This is where the Facade pattern comes into play.</p>
+<p>Mainly the idea is you make <em><strong>one file that acts as an interface to a bunch of other files</strong></em>.  Much like the dashboard of a car does this. Let's talk about how to do this.</p>
+<h2>File structure</h2>
+<p>We organize things the way you normally would in a context. Every context has a name which in our example below is <code>widget.ex</code>. This acts as the <strong>Public API</strong> to the sub-modules in the <code>widget/</code> folder.</p>
+<pre><code>lib
+├── your_app
+│   ├── widget                (&lt;-- context folder)
+|   |   ├── private 
+│   │   │   ├── create.ex           (&lt;-- private function file)
+│   │   │   ├── update_settings.ex  (&lt;-- private function file)
+│   │   │   └── upsert.ex           (&lt;-- private function file)
+│   └── widget.ex             (&lt;-- facade)
+...
+</code></pre>
+<p>Public V.S. Private here means that different contexts should never reference the private modules directly (<code>Widget.Private.Create.call()</code> should never access <code>Org.Private.Upsert.call()</code> directly, it should go through the facade <code>Org.whitelist()</code>.</p>
+<h2>The Facade File (Public API)</h2>
+<blockquote>
+<p>A facade is a module that provides a simplified interface to a larger body of code.</p>
+</blockquote>
+<p>Facade files adhere to the following rules:</p>
+<ul>
+<li>They <em><strong>only contain</strong></em> <code>defdelegates</code>. (See the <a href="https://hexdocs.pm/elixir/Kernel.html#defdelegate/2" rel="noopener noreferrer">defdelegate docs</a>.)</li>
+<li>They are <em><strong>the main place of documentation</strong></em> for the context's API.</li>
+</ul>
+<p><strong>Example of the <a href="http://www.petecorey.com/blog/2018/09/03/using-facades-to-simplify-elixir-modules/?utm_campaign=elixir_radar_159&amp;utm_medium=email&amp;utm_source=RD+Station" rel="noopener noreferrer">facade pattern</a>:</strong></p>
+<pre><code>defmodule YourApp.Widget do
+  @moduledoc """
+  A widget is a unit of sale...
+  """
+  alias YourApp.Widget.{
+    Create,
+    Update,
+  }
+
+  @doc """
+  Create a widget in the database. Any configuration options not specified will
+  be provided with defaults.
+
+  # Example
+
+      iex&gt; {:ok, id} = Widget.create()
+  """
+  defdelegate create(config \\ %{}), to: Create, as: :call
+
+  @doc """
+  Update a widget's configuration options. If the update is a no-op it will return an error.
+
+  # Example
+
+      iex&gt; {:ok, id} = Widget.create()
+      iex&gt; Widget.update(id, color: "red")
+  """
+  defdelegate update(id, config), to: Update, as: :call
+end
+</code></pre>
+<h2>Private Function Files</h2>
+<p>Private function files adhere to the following rules:</p>
+<ul>
+<li>Their <em><strong>filename matches the name of the function they represent</strong></em>.</li>
+<li>They have a <em><strong>single exposed function</strong></em> named <code>call</code> at the top of the module.</li>
+<li>They must <em><strong>never be accessed directly</strong></em>, but rather through the facade.</li>
+</ul>
+<p><strong>Example of a private function file:</strong></p>
+<pre><code>defmodule YourApp.Widget.Create do
+  @moduledoc """
+  Create a widget.
+  """
+
+  # this is the only public function
+  def call(config \\ %{}) do
+    # do stuff
+  end
+
+  defp helper_function() do
+    # ...
+  end
+end
+
+</code></pre>
+Designing good APIs
+<blockquote>
+<p>"If your application is difficult to use from <code>iex</code>* your APIs are probably wrong"</p>
+<p>~ <a href="https://www.youtube.com/watch?v=Ue--hvFzr0o&amp;index=9&amp;list=PLqj39LCvnOWaxI87jVkxSdtjG8tlhl7U6" rel="noopener noreferrer"><strong>Aaron Renner</strong></a></p>
+</blockquote>
+<p><em>*NOTE: <code>iex</code> is ELixir's REPL where you can type in some elixir code, push enter and it will show you the result.)</em></p>
+<p>The facade pattern makes the API of your project much easier to <em>understand, remember, and reuse</em>.</p>
+<p>For instance, isn't this easier?</p>
+<pre><code>iex(4)&gt; YourApp.Org.whitelist("1")
+{:error, "Org is already whitelisted."}
+</code></pre>
+<p>than <em>this</em>?</p>
+<pre><code>iex(4)&gt; YourApp.Org.OrgWhitelist.whitelist(%OrgRequest{org_id: 1})
+{:error, "Org is already whitelisted."}
+</code></pre>
+<h2>Code Generators</h2>
+<p>One barrier to this pattern is the fact that it can be a lot of work to create these. to fix this problem I made a mix command (<code>mix gen.fn</code>) to generate new andupdate facade and function files.</p>
+<p>For example:</p>
+<pre><code>λ ~/lib/your_app/ mix gen.fn "Email.feedback_email_contents(user_metadata, org, feedback)"
+
+./lib/your_app/email.ex doesn't exist, creating...
+File wrote to: ./lib/your_app/email.ex
+File wrote to: ./lib/your_app/email/feedback_email_contents.ex
+File wrote to: ./test/your_app/email/feedback_email_contents_test.exs
+File modified: ./lib/your_app/email.ex
+</code></pre>
+<p>Here's how I did it (NOTE: not the cleanest code): <a href="https://gist.github.com/justgage/0ad132409d0a91db88db5bc6f84666b3" rel="noopener noreferrer">https://gist.github.com/justgage/0ad132409d0a91db88db5bc6f84666b3</a></p>
+<hr>
+<p><em><strong>Backlinks</strong></em>:</p>
+<ul>
+<li><a href="http://localhost:5000/elixir_moc.md" rel="noopener noreferrer">Elixir MOC</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

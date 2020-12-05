@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Achieving Reusability </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Achieving Reusability</h1>
+<p><a href="http://localhost:5000/talks.md" rel="noopener noreferrer">talks</a></p>
+<h2>Why Reusability?</h2>
+<h3>When it goes Good</h3>
+<ol>
+<li>Eases later implementations (hopefully)</li>
+<li>Might make calling code much more readable.</li>
+<li>Less lines of code overall (hopefully)</li>
+<li><strong>Work at a higher level,</strong> if you feel like you're writing the same code over and over, STOP! You're wasting your time.</li>
+</ol>
+<h3>When it goes Bad</h3>
+<ol>
+<li>It might not end up being that reusable</li>
+<li>It might make it less readable</li>
+<li>It can be time consuming</li>
+</ol>
+<h3>The Ugly</h3>
+<ol>
+<li>It can make code very hard to understand</li>
+<li>Makes code very indirect and hard to follow</li>
+</ol>
+<h2>Word of caution...</h2>
+<blockquote>
+<p>duplication is far cheaper than the wrong abstraction</p>
+</blockquote>
+<p>However to that I say</p>
+<blockquote>
+<p>Being afraid of making the wrong abstraction is a poor excuse to never do it.</p>
+</blockquote>
+<p>I think the real problem is:</p>
+<blockquote>
+<p>"Being abstract is something profoundly <strong>different from being vague</strong>… The purpose of abstraction is not to be vague, but to create a new semantic level in which one can be absolutely precise."</p>
+</blockquote>
+<h2>How to make things reusable?</h2>
+<h3>0. Recognize Duplication</h3>
+<p>If you see some code that's just <strong>feels</strong> like you've written it before or you've seen it before, just look for it!</p>
+<pre><code>* Have you written your own component for something that looks very similar on another page?
+</code></pre>
+<h3>1. Smaller Abstraction</h3>
+<p><strong>SRP</strong></p>
+<p>Think Single Responsibility principle!</p>
+<p>Tell-tell signs you're doing it wrong:
+1. You add arguments for new use cases (read_message)
+2. You have to name it with "and" <code>UserCanDoThisAndThat</code> <code>CreateMessageAndSendEmail</code></p>
+<h3>2. Make API's easy to remember and use</h3>
+<blockquote>
+<p>The best modules are deep: <strong>they have a lot of functionality hidden behind a simple interface.</strong> A deep module is a good abstraction because only a small fraction of its internal complexity is visible to its users. A shallow module is one whose interface is relatively complex in comparison to the functionality that it provides.</p>
+</blockquote>
+<h3>3. Reusable Naming</h3>
+<h3>4. Good documentation</h3>
+<h3>5. Good code organization</h3>
+<h3>6. Tell people about it!</h3>
+<h3>7. Use the platform</h3>
+<p>Know the standard lib! Using an esoteric standard lib function is <strong>good</strong> you might not know it yet, but you can learn. Thousands of libraries? Not so good.</p>
+<h2>Practical Example:</h2>
+<p>Links:</p>
+<ul>
+<li><a href="http://localhost:5000/abstractions_considered_harmful.md" rel="noopener noreferrer">Abstractions considered harmful</a></li>
+<li><a href="http://localhost:5000/abstraction_is_creating_a_new_level_in_which_one_can_be_absolutely_precise.md" rel="noopener noreferrer">Abstraction is creating a new level in which one can be absolutely precise</a></li>
+<li><a href="http://localhost:5000/documentation.md" rel="noopener noreferrer">documentation</a></li>
+<li>#organization</li>
+</ul>
+
+    </div>
+</body>
+
+</html>

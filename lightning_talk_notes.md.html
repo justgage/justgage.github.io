@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Lightning Talk notes </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Lightning Talk notes:</h1>
+<h2>Write some docs:</h2>
+<p>There's a ReasonML book!
+<a href="https://pragprog.com/book/reasonml/web-development-with-reasonml" rel="noopener noreferrer">Web Development with ReasonML: Type-Safe, Functional Programming for JavaScript Developers by J. David Eisenberg |  The Pragmatic Bookshelf</a></p>
+<h2>Something</h2>
+<p><code>Cypress</code> bindings!</p>
+<h2>AWS lambda OCaml. Just staticky linked executable.</h2>
+<p><a href="https://github.com/anmonteiro/aws-lambda-ocaml-runtime" rel="noopener noreferrer">https://github.com/anmonteiro/aws-lambda-ocaml-runtime</a></p>
+<h2><a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a>-like decoders for ReasonML</h2>
+<p><a href="https://github.com/mattjbray/ocaml-decoders" rel="noopener noreferrer">https://github.com/mattjbray/ocaml-decoders</a></p>
+<p>Works in native and browser</p>
+<pre><code>D.decode_value D.int json;;
+
+D.decode_string D.int "1";;
+</code></pre>
+<h2>Polymorphic variant</h2>
+<p>Structural.</p>
+<p>Allow two libraries to use the same bindings.</p>
+<p><strong>Error messages</strong> can be crappy.</p>
+<p><code>{. "structually": "string}</code></p>
+<h2>ReasonML video course!</h2>
+<p><a href="https://learnreasonml.com/" rel="noopener noreferrer">Learn ReasonML | Learn ReasonML</a></p>
+<h2>Arefs, the full full stack</h2>
+<p>10k camp
+50k reason lines in website
+600,000 lines generated</p>
+<p><strong>Atdgen</strong> (dojo)</p>
+<h2>ReLearning stuff (teaching co-workers)</h2>
+<pre><code>
+- Unit as a last argument is confusing
+  - don't do them, so you don't have to pass unit
+	- Optional Arguments are great for non-breaking changes
+</code></pre>
+<p>Linked lists V.S. Array</p>
+<h3>"BuckleScript"? Belt???</h3>
+<h3>Custom Operators</h3>
+<p>Can be useful for monadic operations</p>
+<pre><code>Reason # let (or) (x, y) = switch (x) {
+| None =&gt; y
+| Some(_) as x =&gt; x
+}
+;
+let ( or ): (option('a), option('a)) =&gt; option('a) = &lt;fun&gt;;
+
+Reason # Some("cool") or Some("not cool");
+- : option(string) = Some("cool")
+
+Reason # None or Some("not cool");
+- : option(string) = Some("not cool")
+</code></pre>
+<h2>RFCs</h2>
+<p>Works at Stockholm Research Center</p>
+<ul>
+<li>ReasonSTHLM creates</li>
+<li>ReasonableCoding Livestream (Pony too!)</li>
+<li>Reason Design Patterns</li>
+</ul>
+<h2>Brisk &amp; Revery</h2>
+<p><a href="http://localhost:5000/reasonconf2019.md" rel="noopener noreferrer">reasonconf2019</a></p>
+
+    </div>
+</body>
+
+</html>

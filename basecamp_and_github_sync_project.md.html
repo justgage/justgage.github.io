@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Basecamp and Github Sync Project </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Basecamp and Github Sync Project</h1>
+<p>This is a project to use Code Review Live and my Basecamp Elixir Library to sync the two</p>
+<h2>Problem</h2>
+<p>Github Projects is a <a href="http://localhost:5000/kanban_boards.md" rel="noopener noreferrer">Kanban boards</a> with <a href="http://localhost:5000/neverending_sprints.md" rel="noopener noreferrer">Neverending Sprints</a>. This is bad for team <a href="http://localhost:5000/kanban_boards_and_motivation.md" rel="noopener noreferrer">modivation</a>.</p>
+<p>Also slack is a huge source of <a href="http://localhost:5000/topic_fragmentation.md" rel="noopener noreferrer">topic fragmentation</a> and <a href="http://localhost:5000/context_indepedent_messages.md" rel="noopener noreferrer">lack of context</a> added to Issues where they belong.</p>
+<p>I think <a href="http://localhost:5000/basecamp_discourages_communication_fragmentation.md" rel="noopener noreferrer">Basecamp discourages communication fragmentation</a> and encourages <a href="http://localhost:5000/documentation.md" rel="noopener noreferrer">documentation</a> which helps us understand stuff.</p>
+<h2>Measure of Success</h2>
+<p>If Paul has no idea we're using BC, it's always up to date (because BC naturally makes sure things are up to date).</p>
+<p>A final goal is that comments are</p>
+<h2>Solution</h2>
+<ol>
+<li><strong>Linking Step</strong>: Look for all the tasks that aren't linked in the DB and link them</li>
+<li><strong>Reactive</strong>: When you check off a Basecamp todo then it will drag the card to the right in <a href="http://localhost:5000/basecamp_projects.md" rel="noopener noreferrer">Basecamp Projects</a></li>
+</ol>
+<h2>Rabbit holes</h2>
+<blockquote>
+<p>These are a bunch of simplifying decisions that will help people not waste too much time</p>
+</blockquote>
+<p>It's hard to know which of the two sources is more up to date. Ways we can get around this:</p>
+<ul>
+<li><strong>PR's status always wins</strong></li>
+<li><strong>One directional Sync</strong>
+<ul>
+<li>Manually pick direction? (Mix task)</li>
+<li>Board always wins because that's what we want to make sure is always up to date</li>
+</ul>
+</li>
+<li><strong>Only reactive</strong>: When you get a webhook or people comment with magic commands.</li>
+<li><strong>No Webhooks for Github</strong>: These aren't super hard to do perhaps but would complicate things and the GraphQL endpoint is much easier to use.</li>
+</ul>
+<p>It's hard to know that a Github thing is connected to a Basecamp thing. How do we solve this problem?</p>
+<ul>
+<li>Save the links in the DB
+<ul>
+<li>Manually link them</li>
+</ul>
+</li>
+<li>Look for BC todos with a link to a Github thingy</li>
+<li>Look for tasks with the same name</li>
+<li>If you can't find it, create a new BC todo in an "unscoped" category</li>
+</ul>
+<h2>No-gos</h2>
+<blockquote>
+<p>These are things that we've explicitly fenced of as things we're not going to do.</p>
+</blockquote>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> How to run Dgraph </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>How to run Dgraph</h1>
+<h1>Dgraph Notes:</h1>
+<p>Get docker image:</p>
+<pre><code>docker pull dgraph/dgraph
+</code></pre>
+<p>Get it going:</p>
+<pre><code>
+mkdir -p ~/dgraph
+
+# Run dgraphzero
+docker run -it -p 8081:8081 -p 8080:8080 -p 9080:9080 -v ~/dgraph:/dgraph --name dgraph dgraph/dgraph dgraph zero --port_offset=-2000
+
+# In another terminal, now run dgraph
+docker exec -it dgraph dgraph server --bindall=true --memory_mb 2048 --zero localhost:5080
+
+# Run ratel(Dgraph UI)
+docker exec -it dgraph dgraph-ratel
+</code></pre>
+<p>See UI: <a href="http://localhost:8081/" rel="noopener noreferrer">Dgraph Ratel Dashboard</a></p>
+<p><a href="http://localhost:5000/dgraph.md" rel="noopener noreferrer">Dgraph</a></p>
+
+    </div>
+</body>
+
+</html>

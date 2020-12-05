@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Intro to Kubernetees (K8S) </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Intro to Kubernetees (K8S)</h1>
+<p>At We've</p>
+<ul>
+<li>2012  -Monolith Python app (turned off 4 weeks ago)</li>
+<li>2014 - Migration to Go &amp; Microservices (on their own VM each $$$$)</li>
+<li>2016 - Kubernetees  in prod (in a month!)</li>
+<li>2018 - Service mesh in prod</li>
+</ul>
+<h1>Go</h1>
+<p>Go can compile down to it's own binary, which basically means that you only need "scratch" docker image <strong>mindblown</strong></p>
+<ul>
+<li>Docker</li>
+<li>rkt</li>
+<li>ContainerD - docker except more opensource</li>
+</ul>
+<h2>How do manage if you have thousands???</h2>
+<ul>
+<li>Resource usage?</li>
+<li>How do you rolling updates with no downtime?</li>
+</ul>
+<h1>Kubernetes: orchestration tools</h1>
+<p><strong>Google's Borg</strong>: their private instance of Kubernetes.  for <strong>15 years</strong></p>
+<p>They behave as one machine</p>
+<p>One of the most active projects on Github.</p>
+<p>AWS launched their own hosted version of Kubernetes.</p>
+<blockquote>
+<p>So let me get this strait. You want to build an external version of the borg task schedule. One of the most important competitive advantages. The one we don't even talk about externally. And. On top of that, you want to open source it?</p>
+</blockquote>
+<h1>Install</h1>
+<ul>
+<li>Mini-cube is the easiest bet + virtual box</li>
+</ul>
+<h1>Architecture</h1>
+<ul>
+<li>Work nodes</li>
+<li>Master nodes</li>
+</ul>
+<p>Key value store</p>
+<p>API server -&gt; what you talk to</p>
+<p>Manager:</p>
+<ul>
+<li>make sure it's in the right state</li>
+</ul>
+<p>Scheduler</p>
+<ul>
+<li>What services startup were</li>
+</ul>
+<p>kubelet / proxy</p>
+<ul>
+<li>a bunch of docker containers (simplified)</li>
+</ul>
+<p><strong>kubectl</strong>: cube cuttle?</p>
+<h1>Pods</h1>
+<p>This is the biggest difference. (Mesos wasn't on the map)</p>
+<p><strong>the lowest level</strong> is a pod. And a pod can multiple containers. It has an IP address. It can have volumes as well.</p>
+<p>You have a micro service inside the container that just has a address, we could change how it works.</p>
+<p>YML defines a <strong>pod</strong></p>
+<pre><code>kubectl run busy box -i -t --image busy box --restart=Never /bin/sh
+</code></pre>
+<p>^- drops you into a cli</p>
+<pre><code>minikube dashbaord (visualize)
+</code></pre>
+<p>What happens when a pod runs out of memory</p>
+<pre><code>kubectl -f &lt;confg.yml&gt;
+</code></pre>
+<h2>Pods are ephemeral (mortal), it's just going to create new ones every time, new ip's every time</h2>
+<p>Pods random hostname
+etc...</p>
+<h1>Services logical grouping of pods</h1>
+<ul>
+<li>round-robin requests to them</li>
+<li>Example</li>
+<li>Selector:
+<ul>
+<li>route to right pod specifically</li>
+</ul>
+</li>
+<li>Services
+<ul>
+<li>NodePort: easy way</li>
+</ul>
+</li>
+</ul>
+<h1>How do we do rolling updates and other fancy magic???</h1>
+<p>Promethius Bringing -Fire- Kubernetees to man</p>
+<h2>Deployment</h2>
+<ul>
+<li>Wraps around pods, declarative</li>
+<li>Auto-scaling setup</li>
+<li></li>
+</ul>
+<h1>Creating your own kind of Object in K8s</h1>
+<pre><code>kc create
+</code></pre>
+<ul>
+<li>Create a smoke tests</li>
+<li>etc.</li>
+</ul>
+<p>Defining it:</p>
+<ul>
+<li>nice name</li>
+<li>Version name</li>
+<li>spec:
+<ul>
+<li>any key values you want</li>
+</ul>
+</li>
+</ul>
+<h1>Service Mesh - Helm</h1>
+<ul>
+<li>
+<p>Dedicated infrastructure for handling <strong>service to service communication</strong></p>
+</li>
+<li>
+<p>Sidecar: middleware?</p>
+</li>
+</ul>
+<h1>Join the community.</h1>
+<p><a href="http://localhost:5000/open-west.md" rel="noopener noreferrer">open-west</a></p>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Cases were ReasonML static typing would have saved us </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Cases were ReasonML <a href="http://localhost:5000/static_typing.md" rel="noopener noreferrer">Static Typing</a> would have saved us</h1>
+<ul>
+<li>Mobile app broke due to adding conversations this is because we were trying to access a polymorphic field that doesn't <em>necicarily</em> have to be there.</li>
+<li>On Demogorgon we where trying looking through a list to find a Location in it. However this Location was archived</li>
+</ul>
+
+    </div>
+</body>
+
+</html>

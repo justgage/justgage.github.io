@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Why Atomic css makes people mad </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Why Atomic css makes people mad</h1>
+<p>I'm a fan of <a href="http://localhost:5000/tachyons.md" rel="noopener noreferrer">Tachyons</a> which is a functional CSS library. It basically follows an idea is making CSS classes do one thing and naming them after what they do. For example the <code>fr</code> class makes any object <code>float: right</code>. You can also do <code>fr-ns</code> to turn it off when it's on mobile (which works for about any class in <a href="http://localhost:5000/tachyons.md" rel="noopener noreferrer">Tachyons</a>). There's also <code>-l</code> and <code>-m</code> file turning on styles for medium and large screens respectively.</p>
+<p>This whole "name things by what they do" has an odd reaction in people.</p>
+<p>As soon as they see the longer list of class names their blood starts to boil, they grab their pitchfork and their symantic CSS Bible and go to work to eradicate these wild and unnatural ideas from anyone reading the comments section.</p>
+<p>Why is this?</p>
+<p>One possible conclusion is that functional CSS is doing something that most people see as wrong. It seems dirty when you see HTML polluted with long lines of class-names as apposed to one clean one like <code>button</code>.</p>
+<p>Worse that your class names aren't "semantic", a word meaning,</p>
+<blockquote>
+<p>"relating to meaning in language or logic." (google's dictionary)</p>
+</blockquote>
+<p>or in practice, <em>"the name that I made up after a few seconds of thinking about it".</em></p>
+<p>However I think there's a deeper issue, I think perhaps functional CSS gets people angry because it's going against everything that they've been taught. About CSS maintainability.</p>
+<p>We've all been taught that in the case of the "enviable" redesign we should only have to change a few CSS classes and the whole site would suddenly be different.</p>
+<p>This argument could be true for some websites such as a blog or informational website. Why? Because these have basic layouts and follow basically the same structure on every page. Which means you'll have a few classes such as <code>.title</code>. you might even get away with styling the HTML elements themselves.</p>
+<p>However I don't feel that web apps operate these days. I rarely get a ticket like: <em>"change all the buttons to square and make them blue"</em> and a lot more like <em>"add some extra space to the top of the button on the settlings page"</em></p>
+<h1>The real reason</h1>
+<p>I think that this is a case of people misunderstanding what functional CSS is about.</p>
+<p>It's a change in the way we think about CSS.</p>
+<p>At it's most basic level redefining the role of a stylesheet.</p>
+<ul>
+<li><a href="http://localhost:5000/funcitonal_css.md" rel="noopener noreferrer">Funcitonal Css</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

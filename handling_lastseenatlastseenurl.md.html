@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Handling LastSeenAtLastSeenUrl </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Handling LastSeenAt/LastSeenUrl</h1>
+<p>LastSeenAt is a value that's constantly updating and as such it seems too expensive and probably not worth it to store that in the event store.</p>
+<h2>What do people really want</h2>
+<ol>
+<li>Know <strong>where</strong> the widget  is installed</li>
+<li>Know <strong>if</strong> the widget is installed</li>
+<li>Know if the widget has <strong>broken</strong> (kind of a late indicator)</li>
+<li>Know if the widget is installed in <strong>multiple places &amp; they aren't paying</strong> for that.</li>
+</ol>
+<h2>Short-term solution</h2>
+<p>The only use case right now is number <strong>1</strong> (and kind of <strong>2</strong>, although not in a very convenient format)</p>
+<p>So to maintain this functionality we just store it outside of the event store in Redis. This is ok because this data is also stored in Kafka/S3 in our analytic data and even then it's not that hard to get it back because HTTP requests are constantly flowing into MindFlayer.</p>
+<h2>Long-term solution: Idea 1</h2>
+<p>It would be awesome to have reports of a widget being installed on multiple websites and compare that to the <code>webchat_limit</code> (not yet a thing)  to let throw up flags in Skyhook to ask people for more money..</p>
+<p>This also would be nice to know all the places a config change will affect.</p>
+<h2>Idea 2</h2>
+<p>Save "Installed on", a list of unique domains it's installed on.</p>
+<p>Also if we were able to scope by domain name that would also help us out.</p>
+<p><a href="http://localhost:5000/event-sourcing.md" rel="noopener noreferrer">event-sourcing</a> <a href="http://localhost:5000/mindflayer.md" rel="noopener noreferrer">mindflayer</a></p>
+
+    </div>
+</body>
+
+</html>

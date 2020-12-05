@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Teaching ReasonML </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Teaching ReasonML</h1>
+<blockquote>
+<p>SWBAT: Write a todo list in ReasonML?</p>
+</blockquote>
+<h1>Why Reason?</h1>
+<ul>
+<li>Compiles to JS, <a href="https://github.com/jaredly/gravitron" rel="noopener noreferrer">Native mac/android/ios apps</a>, bytecode, even a <a href="https://mirage.io/" rel="noopener noreferrer">mini operating system</a>
+<ul>
+<li>ReactNative FRD someday</li>
+</ul>
+</li>
+<li>The syntax by the <strong>creator of React</strong> + a 20 year old language used to power mission critical financial systems</li>
+<li>Types without the typing (always inferred, 100% coverage)</li>
+<li>Looks like JS 🤗</li>
+<li>Facebook backs it</li>
+<li>Gradual typing 2.0</li>
+<li>λ Functional Programming by default, Imperative and Object-oriented for pragmatism reasons</li>
+<li><strong>excels at handling inconsistency</strong></li>
+<li>much more!</li>
+</ul>
+<h2>Basic Setup:</h2>
+<p>Install build system</p>
+<pre><code># provides the BuckleScript compiler
+npm install -g bs-platform
+
+# Provides integration with VScode or whatever
+npm install -g reason-cli@3.1.0-darwin
+</code></pre>
+<p>Make a basic reason app:</p>
+<pre><code># creates project my-first-app/ 
+# ompiles to src/Demo.bs.js using BuckleScript compiler
+# and runs the demo using NodeJS
+bsb -init my-first-app -theme basic-reason  
+cd my-first-app
+npm run build
+node src/Demo.bs.js
+</code></pre>
+<p>Make a ReasonReact app:</p>
+<pre><code>bsb -init my-react-app -theme react.
+</code></pre>
+<h1>Basic types</h1>
+<pre><code>/* immutable variable assigned to an int */
+let a = 1;
+
+/* immutable variable assigned to an float */
+let b = 1.0;
+</code></pre>
+<h3>Lists</h3>
+<p>Lists are linked lists they don't have random-access (you can't get the middle of them efficiently) but they are cheaper to add items to. Makes less of a difference in JS.</p>
+<pre><code>let c = [1, 2, 3];
+</code></pre>
+<p>They don't allow different types in the same thing.</p>
+<p><img src="http://localhost:5000/Teaching%20ReasonML/28A6BB82-0216-4200-9260-7ED07CB9E057.png" alt=""></p>
+<h3>Tuples</h3>
+<p>tuples are like elixir tuples. They use <code>()</code>'s though</p>
+<p><img src="http://localhost:5000/Teaching%20ReasonML/490D5B5F-D2C7-4714-96C0-EF78CCFEAD33.png" alt=""></p>
+<p>kind of like fixed length, polymorphic arrays. Or a struct were you're too lazy to name the fields.</p>
+<h3>Arrays</h3>
+<p>arrays have a different syntax  and they allow random access</p>
+<pre><code>let d = [|1, 2, 3|];
+</code></pre>
+<p>This defines a struct. They have a <strong>fixed</strong> number of fields. They all must be present.</p>
+<pre><code>type person = {
+	name: string,
+	age: string
+};
+
+
+let gage = {name: "gage"}
+</code></pre>
+<p><img src="http://localhost:5000/Teaching%20ReasonML/240A0D91-C108-4A29-B589-D157DBE9900F.png" alt=""></p>
+<h1>Minting new types</h1>
+<p><img src="http://localhost:5000/Teaching%20ReasonML/543CE6A4-9BFE-4CD2-B50D-00555ABA899B.png" alt=""></p>
+<p><img src="http://localhost:5000/Teaching%20ReasonML/AB3A7422-659F-489E-8140-C499B5E52EC1.png" alt="">
+<a href="https://www.youtube.com/watch?v=AnZ0uTOerUI" rel="noopener noreferrer">GOTO 2018 • Unconditional Code • Michael Feathers - YouTube</a></p>
+<blockquote>
+<p>Don't be "stringly" typed...</p>
+</blockquote>
+<h3>Ode to the overloaded string...</h3>
+<p>often used for</p>
+<ul>
+<li>a unique id: <code>var BLUE_COLOR = "blue"</code></li>
+<li>an identifier into a data structure:</li>
+</ul>
+<pre><code>var BLUE = "blue";
+var RED = "red";
+var colors = [BLUE, RED] 
+</code></pre>
+<ul>
+<li>the name of an object field: <code>person["age"] = 24</code></li>
+<li>an enum: <code>if (audio.canPlayType() === 'probably') {...}</code> (yes this is an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/canPlayType#Return_value" rel="noopener noreferrer">actual DOM API</a>)</li>
+<li>other crazy patterns you'll soon find horrible, after getting used to Reason's alternatives.</li>
+</ul>
+<p><a href="http://localhost:5000/reason.md" rel="noopener noreferrer">reason</a> <a href="http://localhost:5000/teaching.md" rel="noopener noreferrer">teaching</a></p>
+<hr>
+<p><em><strong>Backlinks</strong></em>:</p>
+<ul>
+<li><a href="http://localhost:5000/elixir_moc.md" rel="noopener noreferrer">Elixir MOC</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

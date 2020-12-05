@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Why your ReasonML evangelism isn't Working (references) </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Why your ReasonML evangelism isn't Working (references)</h1>
+<h2>TL;DR</h2>
+<p>SOOO. What's my talk all about? Understanding people. Understanding people so that you can understand how to cater to them better.</p>
+<hr>
+<p>We all want to sell <a href="http://localhost:5000/reasonml.md" rel="noopener noreferrer">ReasonML</a> but often it seems that our arguments fall on deft ears. There's perhaps many reasons that this might and there's no right answers. I'm going to tell you now I'm no expert, not in the least, I haven't (as of yet) convinced my job to even try out ReasonML, however I have introduced other technologies and changes that were big and even better I can draw on the advice and experience of people that have made large language leaps in their companies.</p>
+<p>The namesake of this talk is the blog post, <a href="https://ericsink.com/entries/fsharp_chasm.html" rel="noopener noreferrer">"Why your F# evangelism isn't working"</a> . I'll now proceed to quote this directly because of how good it is.</p>
+<p>There's 4 kinds of people...</p>
+<ol>
+<li>**The "<a href="http://localhost:5000/early_adopters.md" rel="noopener noreferrer">early adopters</a>"**people who like trying new technologies</li>
+<li>**The "<a href="http://localhost:5000/pragmatists_or_early_majority.md" rel="noopener noreferrer">Pragmatists or Early Majority</a>"*<em>people who only care about technology to get something done</em></li>
+<li>**The "<a href="http://localhost:5000/conservatives.md" rel="noopener noreferrer">conservatives</a>"**pragmatists, but even more risk-averse</li>
+<li>**The "<a href="http://localhost:5000/laggards.md" rel="noopener noreferrer">laggards</a>"**people who actively avoid new things</li>
+</ol>
+<p>They are laid out on a spectrum below. As you can see it's a sort of bell curve. The height is about the number of people, from left to right is how likely people are to adopt new technologies. Guess where we are? Yep, the far left.</p>
+<p><img src="http://localhost:5000/Why%20your%20ReasonML%20evangelism%20isn't%20Working%20(references)/8A9A0DFC-D441-4910-8DDD-EF0DF7D43145.png" alt=""></p>
+<p>Also you can see "The Chasm" which is an indication that most technologies struggle to cross from being a new and hip technology to one used by every day people. I think it's because <strong>there's a fundamental personality difference in the way these two types of people think about technologies</strong>.</p>
+<p>On the one hand Early Adopters think, "Wow this technology looks fun to use and would expand my mind by learning it"</p>
+<p>On the other hand Pragmatists and their more conservative counterparts are thinking, "Is this popular enough to use this? Is it safe to use? Or even, Do I have to change?" Why do they think this way, don't they want to learn?</p>
+<p>It's not about that. Pragmatists are all about <strong>getting stuff done</strong>. Meaning that is their only goal. Technology is a means to an end. <strong>Technology doesn't matter to them, so long as it doesn't get in their way.</strong></p>
+<h1><a href="https://medium.com/the-political-informer/the-rogers-adoption-curve-how-you-spread-new-ideas-throughout-culture-d848462fcd24" rel="noopener noreferrer">The Rogers Adoption Curve &amp; How You Spread New Ideas Throughout Culture</a></h1>
+<p><strong>Innovators</strong>— these are the risk taking, highly educated, prosperous people. They’re always trying those new beta apps, technologies, and lifestyle habits.</p>
+<p>In a political context, they’re the fringe. They hangout in their esoteric groups where they discuss theories, philosophers, and other theoretical works and applications. These political innovators aren’t your average Americans. They’re not watching the latest TV series, or reading popular books and magazines.</p>
+<p><strong>Early Adopters</strong>— also risk takers and highly educated, but more leadership orientated than innovators. Think of these guys as community organizers; informed, risk takers, less prosperous, and more connected with their communities (i.e. popular).</p>
+<p>Early adopters are <strong>the movers and shakers.</strong> They push the idea out into broader culture. Where the <strong>innovators nurtured and matured the idea, these guys push it out of the nest.</strong></p>
+<p><strong>Early Majority</strong>— less risk taking, tending to be more conventional with a willingness to accept new ideas. They’re active in their community, knowledgeable about social trends, and have an influence over their neighbors.
+These are people who arrive to the party on time. They’re not afraid of change, but they don’t go after it. Change comes to them.
+<strong>Late Majority</strong>— usually traditional, and less educated and socially active. Unsurprisingly, this group age wise is older.
+They show up to the party late. Showing up at a growing party isn’t fun for them.
+Change isn’t fun for them either. Unlike the early majority, who lets change come to them, the late majority is more likely hide from it. They’ll push against change if it doesn’t fit neatly into their worldview.
+Your grandpa is probably in this category.<em>Sorry, not sorry.</em>
+<strong>Laggards</strong>— the oldest and most traditionalist of the stages, this group will fight against change. They’re connected to their community, but not in a way that encourages transmission of new ideas. Think of Clint Eastwood in Gran Torino. He’d <a href="https://www.youtube.com/watch?v=NelBNtNm8l0" rel="noopener noreferrer">fit nicely</a> into this category.</p>
+<ul>
+<li><strong>Knowledge</strong> — learning about the existence and function of the idea</li>
+<li><strong>Persuasion</strong> — becoming convinced of the value of the idea</li>
+<li><strong>Decision</strong> — committing to the adoption of the idea</li>
+<li><strong>Implementation</strong> — putting it to use</li>
+<li><strong>Confirmation</strong> — the ultimate acceptance (or rejection) of the idea [ <a href="https://nhokanson.wordpress.com/2007/07/12/everett-m-rogers-diffusion-of-innovations-and-more/" rel="noopener noreferrer">source</a> ]</li>
+</ul>
+<p>If the above Rogers Adoption Curve graph doesn’t make total sense to you (or you want to look at it differently), Seth Godin <a href="http://sethgodin.typepad.com/seths_blog/2015/09/how-idea-adoption-works-the-idea-progression.html" rel="noopener noreferrer">came up with an alternative graph</a> displaying how the theory works.</p>
+<p><img src="http://localhost:5000/Why%20your%20ReasonML%20evangelism%20isn't%20Working%20(references)/0*6gRV9HaD_GrxQW4r.png" alt="">
+In his graph, six stages make up the gradual acceptance and adoption of a new idea.</p>
+<ul>
+<li><strong>Fringe</strong>—the idea is on the outskirts of society and acceptance. “It’s not obvious, proven or readily explained.”</li>
+<li><strong>Risky</strong>—the idea is unknown, and potentially dangerous to utilize</li>
+<li><strong>New</strong>— the idea is seen as “hip” by influencers and gets shared with their audiences</li>
+<li><strong>Hot</strong> — The idea is now being accepted by enough people. It’s a trend</li>
+<li><strong>Mass</strong>— The idea is now accepted by most people. The_masses_are the ones “who only buy pop hits, who only go to restaurant chains, who only drive the most popular car.”</li>
+<li><strong>Always</strong> — Ultimately, the idea becomes so popular and accepted that the_masses_push it on everyone else who hasn’t already accepted the idea (going back to the “you either begrudgingly accept the new idea or are forced to live with it”_laggard_section)</li>
+</ul>
+<p><img src="http://localhost:5000/Why%20your%20ReasonML%20evangelism%20isn't%20Working%20(references)/0*dVFjeZWtARxFdpHh.jpg" alt=""></p>
+<h1>Selling Reason</h1>
+<h2>Tip 1: Don't bash languages! (Yes, essentially, JavaScript but also TypeScript)</h2>
+<p>Bashing other languages is a really bad habit, one even I do. <strong>The problem lies that people love their languages, they worked hard to learn them, by bashing them you just look like a hater, a complainer, and someone that just has no idea how to program in that language.</strong> <em>Pragmatist value getting stuff done, and complaining is the opposite of that.</em></p>
+<p>Don't be a <em>Zealot</em>.</p>
+<h3>Zealot</h3>
+<blockquote>
+<p>A person who is fanatical and uncompromising in pursuit of their religious, political, or other ideals.</p>
+</blockquote>
+<p>🙈 Bad example:</p>
+<blockquote>
+<p>Reason is so much better than JavaScript. It's not that JavaScript is bad it's just that it just can't <em>scale</em>. It's really hard to refactor and eventually you'll end up with <strong>tons</strong> of runtime exceptions then you'll just need to rewrite your app.  JavaScript is like a dumpster fire.</p>
+<p>And TypeScript is fine if you want a tiny bit of safety, but I mean do you really trust anyone to write all those type annotations. I mean it's great if you're a crusty old C# developer or something, but ReasonML is great if you  want real type safety with Algebraic Data Types. You probably haven't heard of those they are this cool way type level construct that allows you to do or operations as well as the normal and operations you're used to...</p>
+</blockquote>
+<p>Notes on this:
+* I was mostly trying to tear down other languages to make mine seem better
+* Very much sound like a zealot
+* Talked about advanced concepts that most likely will make me seem like an elitist</p>
+<p>🙆‍♂️ Good* example (*the best I can do)</p>
+<blockquote>
+<p>Facebook noticed that they had 80% less bug tickets when they switched to using ReasonML on messenger.com. Also, ReasonML's compiler can compile down to native code so in the future we could write Mobile and Desktop apps in the same language we do to write front-end apps.</p>
+<p>Not to mention you get immutability and type safety without having to write type annotations or having to use a library.</p>
+<p>Did I mention that it also has one of the fastest compilers? It will reload the page almost instantly when you're developing on it even with thousands of files.</p>
+</blockquote>
+<hr>
+<p>Notes on this:
+* I didn't bash other languages
+* I didn't talk about the problems with existing technologies.
+* I talk about benefits, things to look for in the future
+* I also used numbers that are measurable
+* Didn't use superior type language, talking about concepts that they are sure to not know about. And if I did I don't try to explain them to them like a they are stupid.</p>
+<p><a href="https://medium.com/@javierwchavarri/adopting-reason-strategies-dual-sources-of-truth-and-why-gentype-is-a-big-deal-c514265b466d" rel="noopener noreferrer">Adopting Reason: strategies, dual sources of truth, and why genType is a big deal</a></p>
+<p>_Disclaimer: migrating an existing product to a new language, even if partially, is one of the most impactful decisions that a team or tech company might make, for better or worse. It is rarely justified, and in most cases the costs will outweigh the benefits. In any case, it is a decision that should be made after deep consideration and never without a large consensus or a detailed plan. Or in other words: do your own research._😉</p>
+<p>You have been looking at Reason and the value behind it:</p>
+<ul>
+<li>Rich type system with a <a href="https://codeburst.io/inference-engines-5-examples-with-typescript-flow-and-reason-edef2f4cf2d3" rel="noopener noreferrer">solid inference engine</a> .</li>
+<li>Very fast build times.</li>
+<li>Highly <a href="https://medium.com/@javierwchavarri/performance-of-records-in-bucklescript-ecf6566fff5c" rel="noopener noreferrer">performant</a> and readable output code.</li>
+<li>Language-level <a href="https://reasonml.github.io/docs/en/record" rel="noopener noreferrer">immutable</a>  <a href="https://reasonml.github.io/docs/en/list-and-array#list" rel="noopener noreferrer">data</a>  <a href="https://reasonml.github.io/docs/en/tuple" rel="noopener noreferrer">structures</a></li>
+</ul>
+<hr>
+<h1><a href="http://localhost:5000/trust.md" rel="noopener noreferrer">TRUST</a></h1>
+<p>The truth is if everyone in your organization trusted you 100%, then if you suggested that ReasonML would be the best thing for your organization there's a very high likelihood that they would adopt it.</p>
+<p>It may pain you to think that people don't trust you, because for the most part they do, they trust that you can get your job done, that if they hand you a ticket you'll get things done in a reasonable amount of time, they trust that you're a nice person that will help others if they ask, however I think there's probably a lack of trust in your ability to make technology choices. This comes with being an early-adopter.. Early adopters choose technologies that often are risky, often they don't pan out, often they'll be hot one minute, gone the next.</p>
+<p>That doesn't mean OCaml &amp; Reason is this way, they've existed for 20 years, however there is very little adoption in the industry and this worries people.  If you're anything like myself you've probably suggested other technologies in the past like <a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a>, Haskell, <a href="http://localhost:5000/functional_css.md" rel="noopener noreferrer">Functional CSS</a>, <a href="http://localhost:5000/event_sourcing.md" rel="noopener noreferrer">Event Sourcing</a>, <a href="http://localhost:5000/functional_programming.md" rel="noopener noreferrer">Functional Programming</a>, Rust, <a href="http://localhost:5000/elixir.md" rel="noopener noreferrer">Elixir</a>, Graph databases, and the like. Many of these perhaps turned out to be bad ideas, or just weren't a great fit for the organization. This in many cases erodes trust. The widespread love of many technologies speaks to what others would see as lack of discrepancy.</p>
+<h3>What are ways you can build trust?</h3>
+<p><img src="http://localhost:5000/Why%20your%20ReasonML%20evangelism%20isn't%20Working%20(references)/9E336B1C-B149-4761-A48C-297CBBCC883F.png" alt=""></p>
+<p><strong>Building Trust Requires:</strong></p>
+<pre><code>* Character
+	* Intent (you have to intend good for a person)
+		* Caring
+		* Transparency
+		* Openness
+	* Integrity (people can tell that you're a person of values, you'll do the right thing)
+		* Honesty
+		* Fairness
+		* Authenticity
+* Competence (you know what you're talking about)
+	* Capability (you can do a task, eg: make a good language decision)
+		* Skills
+		* Knowlege
+		* Experiance
+	* Results (you've made similar technology choices in the past, they've worked out well)
+		* Reputation
+		* Credibility 
+		* Performance 
+</code></pre>
+<hr>
+<h1>Is Reason a good fit? (Make a Plan)</h1>
+<p>I think this is a very important part of learning how to introduce Reason. We have to decide, in our own minds, if it's right for the company. There's a lot of trust at stake here! You're putting your good name on the line for this, you have to make sure ReasonML is a good fit.</p>
+<ul>
+<li>Write out a long form explanation.</li>
+</ul>
+<p><a href="http://localhost:5000/talks.md" rel="noopener noreferrer">talks</a> <a href="http://localhost:5000/reasonconf2019.md" rel="noopener noreferrer">reasonconf2019</a> <a href="http://localhost:5000/reason.md" rel="noopener noreferrer">reason</a></p>
+<hr>
+<p>Links:</p>
+<ul>
+<li><a href="http://localhost:5000/selling.md" rel="noopener noreferrer">Selling</a></li>
+</ul>
+<hr>
+<p><em><strong>Backlinks</strong></em>:</p>
+<ul>
+<li><a href="http://localhost:5000/crossing_the_chasm_by_geoffrey_moore.md" rel="noopener noreferrer">Crossing the Chasm by Geoffrey Moore</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

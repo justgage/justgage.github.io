@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Why CSS always rots </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Why CSS always rots</h1>
+<p>Production Css is not very maintainable in practice.</p>
+<p>Think about it, have you ever seen a well maintained css codebase?</p>
+<p>Me neither.</p>
+<p>I think a lot of this happens because of the mindset of the programer when it's written.</p>
+<p>Often CSS ideologies make the assumption that the programer is going to craft the names of CSS with care and precision, refactoring the hierarchies when then become untrue.</p>
+<p>Ain't nobody got time for 'dat.</p>
+<p>Often we assume that they are going to find your reusable <code>.scss</code> file. Or read through the code looking to remove duplication.</p>
+<p>Ain't nobody got time for 'dat either.</p>
+<p>No, the mentally of a software engineer modifying CSS is,</p>
+<blockquote>
+<p>How fast can I get this to <em>look</em> like I want <em>without messing things up</em></p>
+</blockquote>
+<p>The two parts of this mentally are very important to why CSS rots.</p>
+<p>One is that we care only about <em>the way it looks in the end.</em> This means that we aren't as concerned about the maintainability at large, we just want it to look good with as little effort as possible. Doesn't everyone?</p>
+<p>The other important part is that we are doing this <em>visually</em>. Meaning <em>in the browser.</em></p>
+<p>Doing CSS in the browser means  <em>instant feedback.</em></p>
+<p>It's awesome to modify styles in the dev tools bumping pixels till it's just right then copying it over to your CSS file when you're done. It's far faster than reading thousands of lines is CSS and more fun.</p>
+<p>This, however, has two ill effects. One being that you're pulling pixel values out of the air probably not fitting within any sort of grid system. This creates white space quickly becomes less visually harmonious and pleasing. Not to mention it just makes things hard to line up that are more than 2ems away. Not to mention you'll get a crazy mix of em/rem/px/vh/%'s.</p>
+<p>The other half of the software engineers mentally is, <em>"without messing anything up".</em> Any developer knows modifying or reusing CSS classes is just asking for trouble. So in self-defense we always create new ones.</p>
+<p>A new class is the only class that you can be sure that people aren't depending on in weird ways after all.</p>
+<p>The problem is that CSS grows <em>forever</em>.</p>
+<p>Soon the customer has to sit for a 4 seconds to download the CSS alone if their connection is slow. That being in addition to everything else.</p>
+<p>Another, perhaps larger, the problem is with every new class <em>comes something you have to name</em>. This gets especially bad if the CSS names are global (there's some tools that randomise class names so that they essentially aren't). What if you need to toggle things depending on different 5 situations? 5 more things you have to name!</p>
+<h1>Naming is the problem</h1>
+<p>Symantic naming is generally the standard when using CSS. This essentially means that you name your CSS the same as name of the thing on the page. If the styles are for a sidebar you name the root class <code>.sidebar</code>. And then you put something like these styles in it:</p>
+<pre><code>.sidebar {
+    float: left;
+    background-color: [eee](eee.md);
+ }
+</code></pre>
+<p>This is fine till you start putting <code>float: left</code> and <code>background-color: [eee](eee.md);</code> everywhere. And even worse in lots of places where it only has <code>background-color: [eee](eee.md);</code> in it.</p>
+<p>Tags:</p>
+<ul>
+<li><a href="http://localhost:5000/css.md" rel="noopener noreferrer">css</a></li>
+<li><a href="http://localhost:5000/functional_programming.md" rel="noopener noreferrer">Functional Programming</a></li>
+<li><a href="http://localhost:5000/funcitonal_css.md" rel="noopener noreferrer">Funcitonal Css</a></li>
+<li><a href="http://localhost:5000/my_essays_moc.md" rel="noopener noreferrer">My Essays MOC</a></li>
+<li><a href="http://localhost:5000/symantec_css_problems_and_why_utility_.md" rel="noopener noreferrer">Symantec CSS problems and why Utility </a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> How JSON decoders work </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>How JSON decoders work</h1>
+<p>JSON decoders are perhaps a huge stumbling block for beginners. They are extremely unintuitive for many including myself (at first). Anything beyond the one level map would totally trip me up. Let's see what they are.</p>
+<h1>The problem they solve</h1>
+<p>The main thing that JSON decoders solve is the fact that when Elm gets data from an external source that data can <strong>technically be anything</strong>. We usually want it to be in one format but there's nothing stopping JavaScript from just sending "💩" emojis.</p>
+<p>Elm is statically typed, meaning all the types have to be known as compile time, not at runtime when JS pulls out the emoji keyboard at an inconvenient time. So what if we want <code>{"id": 2}</code> but JavaScript sends <code>{"id": null }</code>? That's not even close to what we want! It's null not an int! Normally in JavaScript we would just find out later when we try to use that in an HTTP request or something, in Elm we don't have runtime exceptions and we don't have null so we have to tell JS (or any external source) that we just won't stand for that behavior (in a nice way</p>
+<h1>Two black boxes</h1>
+<p>So I think most of the confusion for me is the fact that we have not just one but two types that you can't totally see into. One being a "decoder" one being</p>
+<h1>My "simple" JSON, and how to decode it</h1>
+<p>This is the process I went through to Decode this:</p>
+<pre><code>{"action" : Action} OR {"action": Action, "error": "I can't do this because..."}
+</code></pre>
+<p>This <em>appears</em> simple however it's quite tricky because I essentially have two different states that are differentiated only by "error"'s <em>presense</em>. This really isn't too crazy but it does make it a bit more difficult and extends past the safe boundaries of <code>Json.Decode.Pipeline</code></p>
+<pre><code>
+λ ~/code/rapidash/ master* elm repl
+---- elm-repl 0.18.0 -----------------------------------------------------------
+ :help for help, :exit to exit, more at &lt;https://github.com/elm-lang/elm-repl&gt;
+--------------------------------------------------------------------------------
+&gt; :help
+General usage directions: &lt;https://github.com/elm-lang/elm-repl#elm-repl&gt;
+Additional commands available from the prompt:
+
+  :help			List available commands
+  :flags		Manipulate flags sent to elm compiler
+  :reset		Clears all previous imports
+  :exit			Exits elm-repl
+
+&gt; import Json.Decode exposing (..)
+&gt; decodeString
+&lt;function&gt; : Json.Decode.Decoder a -&gt; String -&gt; Result.Result String a
+&gt; ds = decodeString
+&lt;function&gt; : Json.Decode.Decoder a -&gt; String -&gt; Result.Result String a
+&gt; ds (field "a" int) """{"a": 2}"""
+Ok 2 : Result.Result String Int
+&gt; ds (field "a" string) """{"a": 2}"""
+Err "Expecting a String at _.a but instead got: 2" : Result.Result String String
+&gt; ds (field "a" string) """{"a": "asdf"}"""
+Ok "asdf" : Result.Result String String
+&gt; andThen
+&lt;function&gt;
+    : (a -&gt; Json.Decode.Decoder b)
+      -&gt; Json.Decode.Decoder a -&gt; Json.Decode.Decoder b
+&gt; andThen
+&lt;function&gt;
+    : (a -&gt; Json.Decode.Decoder b)
+      -&gt; Json.Decode.Decoder a -&gt; Json.Decode.Decoder b
+&gt; andThen (\ str -&gt; suceed str)
+-- NAMING ERROR ---------------------------------------------- repl-temp-000.elm
+
+Cannot find variable `suceed`
+
+4|   andThen (\ str -&gt; suceed str)
+                       ==^^==
+Maybe you want one of the following?
+
+    succeed
+    Json.Decode.succeed
+
+
+&gt; andThen (\ str -&gt; succeed str)
+&lt;function&gt; : Json.Decode.Decoder a -&gt; Json.Decode.Decoder a
+&gt; andThen (\ str -&gt; if str == "foo" then succeed str else fail "was not foo")
+&lt;function&gt; : Json.Decode.Decoder String -&gt; Json.Decode.Decoder String
+&gt; actionDecoder = andThen (\ str -&gt; if str == "foo" then succeed str else fail "was not foo")
+&lt;function&gt; : Json.Decode.Decoder String -&gt; Json.Decode.Decoder String
+&gt; andThen (\ str -&gt; if str == "foo" then succeed str else fail "was not foo")
+&lt;function&gt; : Json.Decode.Decoder String -&gt; Json.Decode.Decoder String
+&gt; actionDecoder = andThen (\ str -&gt; if str == "foo" then succeed str else fail "was not foo") Decode.string
+-- NAMING ERROR ---------------------------------------------- repl-temp-000.elm
+
+Cannot find variable `Decode.string`.
+
+3| actionDecoder = andThen (\ str -&gt; if str == "foo" then succeed str else fail "was not foo") Decode.string
+                                                                                               ==^^====^^==^
+No module called `Decode` has been imported.
+
+
+&gt; actionDecoder = andThen (\ str -&gt; if str == "foo" then succeed str else fail "was not foo") string
+&lt;decoder&gt; : Json.Decode.Decoder String
+&gt; type Action = Foo | Bar
+&gt; actionDecoder = andThen (\ str -&gt; if str == "foo" then succeed Foo else fail "was not foo") string
+&lt;decoder&gt; : Json.Decode.Decoder Repl.Action
+&gt; ds (field "a" actionDecoder) """{"a": "asdf"}"""
+Err "I ran into a `fail` decoder at _.a: was not foo"
+    : Result.Result String Repl.Action
+&gt; ds (field "a" actionDecoder) """{"a": "foo"}"""
+Ok Foo : Result.Result String Repl.Action
+
+</code></pre>
+<ul>
+<li><a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a></li>
+<li>#tutorials</li>
+</ul>
+
+    </div>
+</body>
+
+</html>

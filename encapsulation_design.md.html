@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Encapsulation design </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Encapsulation design</h1>
+<p>Drawing the line between what you want other code to be coupled to and what you don't</p>
+<p><strong>Hint:</strong> you want people to be coupled to as little as possible so changes to it affects others very little.</p>
+<blockquote>
+<p>the succinct expression or depiction of the essential features of something.</p>
+<ul>
+<li>Google's dictionary</li>
+</ul>
+</blockquote>
+<p>Indications your line is wrong:</p>
+<ul>
+<li>You make a mere performance improvement and other code breaks</li>
+<li>Changing code that doesn't change what the user experiences breaks code</li>
+</ul>
+<h3>Encapsulation is good for...</h3>
+<ul>
+<li>Things with non-trivial implementation details</li>
+<li>anything with internal state</li>
+<li>anything where the API can be simpler than the underlying data structure</li>
+<li>Making invalid states impossible</li>
+</ul>
+<h3>Encapsulation is bad for...</h3>
+<ul>
+<li>
+<p>encoding (fix: always have some sort of export function)</p>
+</li>
+<li>
+<p>Understanding, sometimes it's just easier to understand the underlying datastucture (over abstraction). If it's just a body of text maybe it should just be a string. This is perhaps the greatest cost. This can be mitigated by first, avoiding abstraction till the API becomes clear, second, making a very minimal API,  third, documenting that API like crazy</p>
+</li>
+<li>
+<p>Using the wrong abstraction. This is the most dangerous part. If you're API is woefully broken and it starts to be depended on, you'll break a lot of code to fix it. This either means you'll never fix it, people will never upgrade, or everyone will have to pay the cost (hopefully small if done soon enough). However this problem is kind of unavoidable because it will either have the interface of the datastucture OR the one you provide. Choose the one that's best.</p>
+</li>
+<li>
+<p><a href="http://localhost:5000/programming.md" rel="noopener noreferrer">Programming</a></p>
+</li>
+<li>
+<p><a href="http://localhost:5000/best_practices.md" rel="noopener noreferrer">Best practices</a></p>
+</li>
+<li>
+<p><a href="http://localhost:5000/my_essays_moc.md" rel="noopener noreferrer">My Essays MOC</a></p>
+</li>
+</ul>
+
+    </div>
+</body>
+
+</html>

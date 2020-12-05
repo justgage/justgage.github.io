@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Why are you doing Event Sourcing in Mind Flayer? Wouldn't it be faster to just use Postgres like all the other apps? </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Why are you doing Event Sourcing in Mind Flayer? Wouldn't it be faster to just use Postgres like all the other apps?</h1>
+<p>I think using Postgres as our main datastore would have been fine for the short term but wouldn't be scalable in the long term.</p>
+<p>Mind Flayer is the API for webchat which gets loaded on people's websites thousands of times every single day. <strong>All it would take is one huge customer using it for it to skyrocket in it's traffic</strong>. Postgres is a great general purpose database but it would most likely not be able to match the read speeds we need in the long run.</p>
+<p>So we have to cache the database.</p>
+<p>But <strong>how do you do cache invalidation</strong>? When someone changes their bubble color to change they would expect it to happen instantly after they save right? Yet we don't want to be constantly polling the database to know if any configs changed.</p>
+<p><strong>What if something is deleted</strong> from the database, how do you know that? <strong>There's no trace of the record left</strong>. How often do we search around and try to find things that no longer belong in the database?</p>
+<p>We could just try to <strong>always remember to write to both places</strong>. However this is easily subverted by someone logging in and changing something in the database directly (usually in development but not always 😉) Now they're super confused why their value isn't showing up in the GraphQL API. They drop and reseed their database, IT'S STILL THERE 😭!</p>
+<p>Basically what I'm saying is <strong>Mutable state is very hard to track</strong>.</p>
+<p>So instead if use an <strong>Immutable log of what changed</strong> then it's easy to stream! All you have to do is start from the beginning and go to the present. Keep track of every event you've seen.</p>
+<p><a href="http://localhost:5000/event_sourcing.md" rel="noopener noreferrer">Event Sourcing</a> <a href="http://localhost:5000/mindflayer.md" rel="noopener noreferrer">mindflayer</a></p>
+<hr>
+<p><em><strong>Backlinks</strong></em>:</p>
+<ul>
+<li><a href="http://localhost:5000/event_sourcing.md" rel="noopener noreferrer">Event Sourcing</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> A Tour of Alt-JS languages </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>A Tour of Alt-JS languages</h1>
+<h1>References:</h1>
+<ul>
+<li><a href="https://softwareengineeringdaily.com/2015/07/30/transpiler-tradeoffs-typescript-coffeescript-es6/" rel="noopener noreferrer">Transpiler Tradeoffs: TypeScript, CoffeeScript, ES6 | Software Engineering Daily</a></li>
+</ul>
+<h3>What makes a programming language <em>good</em> or <em>bad</em>?</h3>
+<p>There's many measures of what make a programing language good or bad. I'm going to attempt to take an approach that's very realistic for a business and it's customers. What really matters to them.</p>
+<ul>
+<li>Constant Iteration and Improvement
+<ul>
+<li>If a business can't improve and grow quickly to meet the market's demand, if it can't fix it's mistakes in the past quickly enough for the competition to overtake them, they have a chance to fail. They must stay agile</li>
+<li>Software:
+<ul>
+<li>Must keep codebase changeable within a reasonable amount of time</li>
+<li>Constant Rewrites are expensive, they must be kept to a minimum</li>
+<li>Ideally very little issues will come up, and when they do debugging and fixing issues should be cheap as possible</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Customer Happiness
+<ul>
+<li>Sure, the product might work, but if it's slow, throws away someones data, doesn't work over a less than ideal connection. If it looks ugly and outdated next to it's competitors, it's popularity is likely to dip.</li>
+<li>Reliability is often</li>
+</ul>
+</li>
+<li>People must power the business
+<ul>
+<li>There must be people who a business can hire <strong>that will be able to learn the language quickly and write good code, and modify the code of their coworkers safely.</strong></li>
+<li>There must be <strong>libraries to prevent people from spending time reinventing the wheel.</strong></li>
+<li>The <strong>language must be enjoyable</strong> to use to keep up moral and stay for a long time.</li>
+</ul>
+</li>
+</ul>
+<h1>About popularity...</h1>
+<p><img src="http://localhost:5000/A%20Tour%20of%20Alt-JS%20languages/4272812D-548A-4914-8508-D2C3EB7EB6F3.png" alt=""></p>
+<h1>Why Alt-JS? What's wrong with JS?</h1>
+<blockquote>
+<p>1995: Created as the result of a 10 day prototype with odd corporate mandates, such as “make it look like java” and fateful requirements to mimic poorly designed Java APIs4.</p>
+<p>1996: Quickly adopted as the standard for client-side browser scripting.</p>
+<p>1999: AJAX! Microsoft releases a non-standard javascript feature that would fundamentally change what browsers are capable of. Its usefulness can’t be denied and other browser vendors quickly adopt it.</p>
+<p>2000-2008: Politics and disagreement stagnate the language. ES41, a perhaps overly-ambitious attempt to modernize javascript is abandoned. Javascript’s dynamic and interpreted nature are a detriment to performance, and a technical ceiling is hit.</p>
+<p>2008: The release of Chrome and the V8 virtual machine, along with Mozilla’s TraceMonkey JIT, breathes new life into Javascript and client-side web development, improving the performance of javascript code by several factors.</p>
+<p>2009: NodeJS is released, an isolated version of the V8 virtual machine with a standard library for running javascript outside of the browser. An entire ecosystem is born.</p>
+<p>2010-Present: An explosion in javascript development. Communities create and evolve solutions to javascript’s many shortcomings. Javascript performance is such that other languages are now able to start transpiling to javascript. Nearly all javascript written over the past 23 years still works in all modern browsers.</p>
+</blockquote>
+<p>reference: <a href="https://discourse.elm-lang.org/t/how-we-talk-about-other-languages/972/10?u=justgage" rel="noopener noreferrer">How we talk about other languages - Request Feedback - Elm Discourse</a></p>
+<h2>Let's be clear, JavaScript is not a "Garbage Fire" 🗑🔥</h2>
+<p>Many people, including myself in the past have ragged on JS for being a terrible language. I think this is absolutely wrong. JavaScript is the most popular programming language in world. It's become wildly popular among everyone, in many cases much of the hate has gone away. JS has improved to  a huge degree.</p>
+<blockquote>
+<p>JavaScript runs on more computers today than any other language</p>
+</blockquote>
+<h3>Let's come down to earth a little...</h3>
+<ol>
+<li>It's literally the only language <em>allowed</em> to run the the browser, so maybe popularity is somewhat compulsory</li>
+<li>It's often hard to read other people's code that write in a different style or programing paradigm than you</li>
+<li>Rewrites seem very common (raise of hands✋)</li>
+<li>While it runs everywhere it tends to not be implemented ubiquitously. There's often missing features, or incompatibility.</li>
+</ol>
+<h1>Babel</h1>
+<h3>History</h3>
+<p>maintained by Henry Zhu now, who works full time on it.</p>
+<h3>Good</h3>
+<ul>
+<li>Makes your code cross browser compatible</li>
+<li>Extensible flexible compiler that lets you add new syntax.
+<ul>
+<li>You can use Cool new features that are <strong>going to be</strong>  in JavaScript!
+<ul>
+<li>Async/Await</li>
+<li>Spread syntax</li>
+<li>Pattern matching</li>
+<li>Etc...</li>
+</ul>
+</li>
+<li>You can use features that will <strong>probably be</strong> in JavaScript
+<ul>
+<li>Decorators</li>
+<li>etc...</li>
+</ul>
+</li>
+<li>You can use Cool new features that <strong>will never be</strong> in JavaScript!
+<ul>
+<li>You can Use <strong>JSX</strong>!</li>
+</ul>
+</li>
+<li>It's basically become synonymous with JavaScript</li>
+</ul>
+</li>
+</ul>
+<h3>Bad</h3>
+<ul>
+<li>You can use Cool new features that <strong>will never be</strong> in JavaScript!
+<ul>
+<li>if the reason you used Babel was so that someday you'll be able to just stop compiling it, there's a decent chance you'll never get there, and you won't get there soon.</li>
+<li>It's far too</li>
+</ul>
+</li>
+<li>You have to have source maps to tell what the original code
+<ul>
+<li>Many of the less standard babel plugins break this.</li>
+</ul>
+</li>
+<li>It's much slower than not using it.</li>
+<li>You get <strong>very little</strong> safety, for the price you pay in compilation time.</li>
+<li>Autocomplete is non-existant</li>
+<li>All the bad parts of JavaScript are still there</li>
+<li>Probably need to run ESLint on top of it. And webpack.</li>
+</ul>
+<h3>Ugly</h3>
+<blockquote>
+<p>It's 2020, Babel is the new CoffeeScript, you're left with a large codebase of non-standard JavaScript code that takes forever to compile. It's really hard to refactor your code now and you rewrite in a new language.</p>
+</blockquote>
+<h1>Typescript</h1>
+<h3>History</h3>
+<h3>Good</h3>
+<h3>Bad</h3>
+<h3>Ugly</h3>
+<h1>Flow</h1>
+<h1><a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a></h1>
+<h1>Purescript</h1>
+<h1>ClojureScript</h1>
+<h1>ReasonML</h1>
+<blockquote>
+<p>The BuckleScript author estimates that the build system should scale to a few hundred thousands files in the current condition.</p>
+</blockquote>
+<h1><code>${YourBackendLanguage}Script</code></h1>
+<p>Talks that do a similar thing: (mostly by Jared)</p>
+<ul>
+<li><a href="https://jaredforsyth.com/type-systems-js-dev/#/68" rel="noopener noreferrer">Type systems will make you a better JavaScript programmer</a></li>
+<li><a href="https://jaredforsyth.com/type-safe-react/#/19?presenter" rel="noopener noreferrer">Reason</a>
+<a href="http://localhost:5000/talks.md" rel="noopener noreferrer">talks</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

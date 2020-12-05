@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Where do I put X data in MindFlayer </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Where do I put X data in MindFlayer</h1>
+<h2>Normal, Everyday, Data we don't want to lose: <em>the Event Store</em> (Postgres right now)</h2>
+<p>The core things like api tokens, configuration data, etc... this should all be stored in the event store so that we can use it in any way we sit fit in the future. We gain great reporting, ability to stream changes, and project into convenient read formats.</p>
+<h2>Realtime data: Kafka</h2>
+<p>When it comes to analytics and realtime reporting we want to put it on Kafka. This will eventually be picked up by our Flink job and transformed into various reporting forms (Domo at the present) and archiving (s3) stores.</p>
+<h2>Caching / Read Friendly Store: Redis</h2>
+<p>Redis is the primary database that <strong>we read stuff out of</strong> because it's very fast to store and read from. Mind you, it's an in memory store so don't store anything there you can't afford to loose.</p>
+<p><a href="http://localhost:5000/event-sourcing.md" rel="noopener noreferrer">event-sourcing</a> <a href="http://localhost:5000/mindflayer.md" rel="noopener noreferrer">mindflayer</a></p>
+
+    </div>
+</body>
+
+</html>

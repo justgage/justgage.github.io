@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Event Sourcing Project </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Event Sourcing Project</h1>
+<ul>
+<li><strong>Anakin</strong> (obvious), basically already there. Just could be much better organized</li>
+<li><strong>Messenger</strong> (maybe less obvious)
+<ul>
+<li>Messages are derived from every other service, what if it just received events and that's what it stored. Then it could derive generic messages from them.</li>
+</ul>
+</li>
+<li><strong>Website Widget</strong>
+<ul>
+<li>Because it's in my control.</li>
+<li>Analytical events like last_seen_url would be good! (however too high of volume)
+<ul>
+<li>Tying messages to website widget events
+<ul>
+<li>Could get messages streamed from messenger.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Reviews</strong> (Review Rocket / Onix)
+<ul>
+<li>We don't own the source of truth, we just need to react to what happens on the review websites</li>
+<li>Having a history is very important for reporting!</li>
+<li>We're doing aggregates for reporting anyway.</li>
+</ul>
+</li>
+<li><strong>User Management</strong></li>
+</ul>
+<p><a href="http://localhost:5000/event-sourcing.md" rel="noopener noreferrer">event-sourcing</a></p>
+
+    </div>
+</body>
+
+</html>

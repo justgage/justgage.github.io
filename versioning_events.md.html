@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Versioning Events </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Versioning Events</h1>
+<p><a href="http://localhost:5000/event-sourcing.md" rel="noopener noreferrer">event-sourcing</a></p>
+<p>Each model has it's version. NOTE: versions are always backwards compatible OR they are a new version!</p>
+<pre><code>
+%Eventv1{name: "Gage"}
+%Eventv2{name: "Gage", age: 27} # backwards compatible
+%Agev1{age: 27} # not backwards compatible
+</code></pre>
+<h2>Information from external systems</h2>
+<p>Never lookup data from an external systems in a projection! It's better to <strong>inline that information into the Event.</strong> Think of how <a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a> saves all the events it gets from external systems into it's event store.</p>
+<h2>Changing Semantic Meaning</h2>
+<blockquote>
+<p>One important aspect of versioning is that semantic meaning cannot change between versions of software. There is no good way for a downstream consumer to understand a semantic meaning change.</p>
+</blockquote>
+<p>EG: Tempature number must always be in the same units. Don't reuse things for different meaning!</p>
+<h1>What if I make a mistake?</h1>
+<p><img src="http://localhost:5000/Versioning%20Events/02352518-35DA-4A66-BC0E-3AEFB4C75F47.png" alt=""></p>
+<p>What would an accountant do?</p>
+<p>Also you can:
+1. Copy and transform to a new stream, once it's over there move to the new stream and delete the old one
+* Good for many events to one event and vice-versa</p>
+
+    </div>
+</body>
+
+</html>

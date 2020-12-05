@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Elm argument </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Elm argument</h1>
+<p>I know that usually introducing a new language is overkill. This is because the cost of learning a new language isn't worth the benefits you gain. Usually they are more trade offs than benefits anyway.</p>
+<p>Elm is different because it has huge benefits with a small learning curve. And the trade-offs are in the right places.</p>
+<h2>Elms benefits</h2>
+<p>The main three benefits that elm provides over JavaScript is:</p>
+<ol>
+<li>no runtime exceptions</li>
+<li>enforced SemVer</li>
+<li>everything being purely functional.</li>
+</ol>
+<p>Essentially this means that <strong>all of JavaScripts runtime exceptions become compile time errors in Elm.</strong> for instance all of the following things can not happen:</p>
+<ul>
+<li>dealing with unhandled Null/undefined/NaN is not a function</li>
+<li>A library changed their API and only bumped a minor version.</li>
+<li>unhandled exceptions being thrown (there are none)</li>
+<li>adding a string to a number or other unexpected polymorphism</li>
+<li>accessing a key in a object that is not there</li>
+<li>refactoring and not finding where all the places you need to change</li>
+<li>etc...</li>
+</ul>
+<p>Think about what this means for us. Less time hunting down bugs means more time making features. <a href="http://localhost:5000/static_typing.md" rel="noopener noreferrer">Static Typing</a> also means less tests, with higher reliability.</p>
+<p>Tests are also easier to write because all functions are pure in Elm.</p>
+<p>Also refactoring is far less error prone because the compiler can find all runtime exceptions. Confident refactoring means it's easier to pay off technical debt</p>
+<h2>Elm is easier to learn than JavaScript</h2>
+<p>Elm is a very small and focused language designed over 5 years to make front end programming easier. <strong>It's easier to learn because there's far less to learn.</strong> Plus it has tons of overlap with JavaScript and Elixir.</p>
+<p>To replace Elm you would have to have the following libraries in JavaScript and use them everywhere:</p>
+<ul>
+<li>React + write all your prop types</li>
+<li>Redux</li>
+<li>immutable.js</li>
+<li>Babel (plus a ton of extensions)</li>
+<li>Lodash</li>
+<li>Flow Es lint to pick up the slack</li>
+<li>A testing framework like jest or something</li>
+<li>redux debugger</li>
+<li>perfect code reviewers that find all your runtime exceptions?</li>
+</ul>
+<p>Using all these libraries in JavaScript is best practice in our company yet it's so hard to get all this setup it usually takes a few days, even with the boiler plate. All this is the default in Elm and feels just add light as a vanilla JavaScript project.</p>
+<p>Elm is also easier to learn because it's similar to Elixir due to being functional, having pattern matching, and even having our favorite |&gt; operator.</p>
+<p>While we write mostly functional JavaScript at it's core it's still a prototypal OO language with many inparitive parts.</p>
+<h2>The costs of Elm</h2>
+<p><a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a> does have some costs. The main one would be there's some boiler plate code to interop with JavaScript. This is because Elm requires everything to be immutable and has no null so you have to transform JSON into Elm data structures. However there's tools to automatically transform JSON into Elm decoders. However this is also a benefit because it removes the danger of working with JSON structures that all too often cause runtime exceptions. Elm makes you handle these before you break production, not after.</p>
+<p>It also requires you to talk to JavaScript over "ports" which are basically a pub sub style channel. This is because if JavaScript threw any exceptions Elm would lose its policy about no runtime exceptions. While this can seem inconvenient you're trading that for no runtime exceptions which is going to be worth it in the long run.</p>
+<h1>Give it a try</h1>
+<p>Talk is cheap, a real experiment is the only way to really tell if Elm is right for us.</p>
+<hr>
+<p><em><strong>Backlinks</strong></em>:</p>
+<ul>
+<li><a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

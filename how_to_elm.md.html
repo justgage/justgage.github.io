@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> How to Elm </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>How to Elm</h1>
+<p>This is a basic guide on how to learn Elm rather than actually teach you. I'm going to mostly link to resources that I feel are valuable and try to "teach you how to fish".</p>
+<p>The main purpose is to accelerate your learning and save you a lot of googling and weeding through bad explinations.</p>
+<h2>Essential links</h2>
+<ul>
+<li>Main website <a href="http://elm-lang.org/" rel="noopener noreferrer">http://elm-lang.org</a></li>
+<li>Elm packages search and docs  <a href="http://package.elm-lang.org/" rel="noopener noreferrer">http://package.elm-lang.org</a></li>
+<li>Elm slack invite <a href="http://elmlang.herokuapp.com/" rel="noopener noreferrer">http://elmlang.herokuapp.com/</a></li>
+<li>Syntax Cheat sheet <a href="http://elm-lang.org/docs/syntax" rel="noopener noreferrer">http://elm-lang.org/docs/syntax</a></li>
+<li>Elm code examples <a href="http://elm-lang.org/examples" rel="noopener noreferrer">http://elm-lang.org/examples</a></li>
+<li>Automatic JSON decoders <a href="http://eeue56.github.io/json-to-elm/" rel="noopener noreferrer">http://eeue56.github.io/json-to-elm/</a></li>
+</ul>
+<h2>Learning Paths</h2>
+<p>There is many different ways to learn Elm. Pick the one that best suits your learning style. With that said I feel that an interactive, "real-ish" project approach to be especially effective for me.</p>
+<h3>Path 0: Make something (recommended)</h3>
+<p>Assuming you're familiar with JavaScript and reasonably familiar with functional programming you should:</p>
+<ol>
+<li>Read through the <a href="http://elm-lang.org/docs/syntax" rel="noopener noreferrer">syntax guide</a></li>
+<li><a href="https://runelm.io/c/dup" rel="noopener noreferrer">Start with a basic project example</a> that uses <code>Html.beginnerProgram</code></li>
+<li>Start making a <strong>prototype</strong> of something (default: to-do list) doing <strong>no JS interop or http requests</strong>.</li>
+<li>Refractor some things by changing the models type and following the compiler messages</li>
+<li>Pull out some of the larger parts into new files like <code>View.elm</code> etc...</li>
+<li>Get to the point it's basically done except for a HTTP request and learn about JSON decoding. I recommend using this: <a href="http://eeue56.github.io/json-to-elm/" rel="noopener noreferrer">http://eeue56.github.io/json-to-elm/</a> to do it automatically.</li>
+<li>If this path didn't work for you make an issue or tell me in some way</li>
+</ol>
+<h3>Path 1: By exercise</h3>
+<ul>
+<li>Exercism <a href="http://exercism.io/languages/elm" rel="noopener noreferrer">http://exercism.io/languages/elm</a></li>
+</ul>
+<h3>Path 2: By video</h3>
+<ul>
+<li>This is a great course (and free!)
+<a href="https://egghead.io/courses/start-using-elm-to-build-web-applications" rel="noopener noreferrer">https://egghead.io/courses/start-using-elm-to-build-web-applications</a></li>
+<li>Elm seeds <a href="https://elmseeds.thaterikperson.com/" rel="noopener noreferrer">https://elmseeds.thaterikperson.com/</a></li>
+<li>daily drip (paid + a few free) <a href="https://www.dailydrip.com/topics/elm" rel="noopener noreferrer">https://www.dailydrip.com/topics/elm</a></li>
+<li>front-end masters course (paid)</li>
+</ul>
+<h3>Path 3: By book</h3>
+<ul>
+<li>Main Elm book <a href="https://guide.elm-lang.org/install.html" rel="noopener noreferrer">https://guide.elm-lang.org/install.html</a></li>
+<li>Elm in action (physical / eBook, paid) <a href="https://www.manning.com/books/elm-in-action" rel="noopener noreferrer">https://www.manning.com/books/elm-in-action</a></li>
+<li>99 problems solved in Elm <a href="https://johncrane.gitbooks.io/ninety-nine-elm-problems/content/" rel="noopener noreferrer">https://johncrane.gitbooks.io/ninety-nine-elm-problems/content/</a></li>
+<li>Elm tutorial <a href="https://www.elm-tutorial.org/en/" rel="noopener noreferrer">https://www.elm-tutorial.org/en/</a></li>
+</ul>
+<h2>Getting Help</h2>
+<ol>
+<li><a href="http://localhost:5000/package.elm-lang.org" rel="noopener noreferrer">Package documentation</a></li>
+<li>Search the <a href="http://faq.elm-community.org/" rel="noopener noreferrer">Elm community FAQ</a></li>
+<li>Ask on <a href="http://elmlang.herokuapp.com/" rel="noopener noreferrer">the Elm slack</a></li>
+</ol>
+<h2>A note to JavaScript developers (Especially React.js devs)</h2>
+<h3>There is no spoon (components)</h3>
+<p>Elm has some serious differences from JavaScript. One of such being <strong>there are no components</strong> only <em>view functions</em>. What is the difference? Well, a component is something that has <em>local state</em> and behaves independently. There is no local state in elm views.</p>
+<p>Elm is a functional programming language and as such it's primary form of abstraction is pure functions. As such you should think of the view as a <em>projection</em> of the state of your app. A view literally transforms the model into HTML, that's it.</p>
+<p>You may be tempted to try to organize your app <a href="https://medium.freecodecamp.com/scaling-your-redux-app-with-ducks-6115955638be#.f9vs9hiv0" rel="noopener noreferrer">duck style</a> meaning grouping your app into many little model + view + update pieces and then finding a way to combine them together. Don't do that. Because Elm is 100% pure it doesn't allow side-effects which mean that you can't hide things like HTTP request, state updates, etc... inside your "duck". This means there's going to be a ton of wiring pushed up to the app that decides to use your ducks.</p>
+<h3>The better way</h3>
+<p>The better way is to define <strong>well-encapsulated Models</strong> that don't export their implementation with functions to work on it, then make view to show that state. I think <a href="https://www.youtube.com/watch?v=IcgmSRJHu_8" rel="noopener noreferrer">this talk is the best explination of it</a>.</p>
+<p>In a list:</p>
+<ol>
+<li>Model the state of the front-end in a clear and concice way</li>
+<li>Use the view to transform that into html</li>
+</ol>
+<p>If you find that the view and the model end up looking quite different consider doing the <a href="https://medium.com/@ckoster22/upgrade-your-elm-views-with-selectors-1d8c8308b336#.4f96kkda8" rel="noopener noreferrer">"selector" pattern</a></p>
+<p>remember:</p>
+<blockquote>
+<p>It's easy to change things in Elm</p>
+</blockquote>
+
+    </div>
+</body>
+
+</html>

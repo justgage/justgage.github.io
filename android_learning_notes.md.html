@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Android learning notes </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <p>Android learning notes</p>
+<h2>Creating Views Dynamically</h2>
+<pre><code>var textViewAppContext = new TextView(getApplicationContext() /* also "this" if you want to do activity */)
+// set some stuff on the textView
+
+layout.addView(textViewAppContext)
+</code></pre>
+<h2>Context</h2>
+<ul>
+<li>
+<p>a handle to the android system</p>
+<ul>
+<li>Resources layouts, strings, images</li>
+<li>System services (LayouteInflator, SharedPreferences...)</li>
+<li>Launching Activities</li>
+<li>Access Databases</li>
+<li>Etc...</li>
+</ul>
+</li>
+<li>
+<p>Typical Subclasses</p>
+<ul>
+<li>Activity</li>
+<li>Application</li>
+<li>Service</li>
+</ul>
+</li>
+<li>
+<p>Activity Context only lasts as long as it's alive</p>
+<ul>
+<li>if you hold a reference to it you could cause a memory leak because it won't allow the Activity to garbage collect</li>
+</ul>
+</li>
+<li>
+<p>Application lasts forever? <code>getApplicationContext()</code></p>
+</li>
+<li>
+<p>Often you pass "this"?</p>
+</li>
+</ul>
+<h2>ViewPager</h2>
+<ul>
+<li>
+<p>ViewPager → Controlls the actually swiping between views</p>
+</li>
+<li>
+<p>ViewPager <em>gets it's content</em> from a PagerAdapter</p>
+</li>
+<li>
+<p>1 View per page → Pager Adapter</p>
+</li>
+<li>
+<p>A Fragment for each page → FragmentPagerAdapter (for fragments)</p>
+<ul>
+<li>this keeps each page in memory, which can be expensive if you have a lot</li>
+</ul>
+</li>
+<li>
+<p>FragmentStatePagerAdapter</p>
+<ul>
+<li>Destory &amp; Recreate fragments</li>
+</ul>
+</li>
+</ul>
+<p>ViewPager2 is the one I should use</p>
+<h2>ViewModel</h2>
+<p>learned from: <a href="https://www.youtube.com/watch?v=5qlIPTDE274" rel="noopener noreferrer">https://www.youtube.com/watch?v=5qlIPTDE274</a></p>
+<p>View Models survive "Configuration Changes"</p>
+<p>Rotating a phone basically tears down your activity and re-creates it</p>
+<p>this clears out all local state</p>
+<p>ViewModels survive therefore don't have this problem</p>
+<p>Also they have a better separation of concerns</p>
+<ul>
+<li>ViewModel: holds UI data (Login form state, etc...)</li>
+<li>Activity: Displays the ViewModel's UI centric data</li>
+<li>Repository: API for saving/loading app data</li>
+</ul>
+<p>WARNING: these do not save their state if the process closes down, <code>onSaveInstanceState</code> does</p>
+<h3>LiveData</h3>
+<p>A class that will broadcast changes to data (create reactive data)</p>
+<ul>
+<li><a href="http://localhost:5000/android_fundimentials.md" rel="noopener noreferrer">Android fundimentials</a></li>
+<li><a href="http://localhost:5000/android.md" rel="noopener noreferrer">Android</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

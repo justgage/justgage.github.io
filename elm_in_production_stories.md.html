@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Elm in Production Stories </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Elm in Production Stories</h1>
+<h2><a href="https://m.youtube.com/watch?v=3FNKaGm3gk0" rel="noopener noreferrer">Richards talk</a></h2>
+<h2><a href="http://sebastianporto.com/blog/posts/2017/from-react-to-elm/" rel="noopener noreferrer">React to Elm</a></h2>
+<ul>
+<li>Lots of code examples</li>
+</ul>
+<blockquote>
+<p>It is all trade-off with immutability when doing JavaScript.</p>
+</blockquote>
+<blockquote>
+<p>In Elm everything is immutable. There is no possibility of doing the incorrect thing, you can never mutate an existing thing, the language just doesn’t let you.</p>
+</blockquote>
+<h3>Easier to learn</h3>
+<blockquote>
+<p>I believe that JavaScript has grown quite complex, there are so many concepts to learn now, like prototypes, classes, this, coercions, promises, generators, async/await, ES6+ features, experimental features that people use everywhere. And the language just keeps growing.</p>
+</blockquote>
+<blockquote>
+<p>Many of the things you learn are often at odds with other things in the language e.g. classes and this vs functional programming.</p>
+</blockquote>
+<blockquote>
+<p>Elm in the other hand is a smaller and coherent language. I’m convinced that Elm is an easier language to learn than JS for a new programmer.</p>
+</blockquote>
+<h2><a href="https://www.pivotaltracker.com/blog/Elm-pivotal-tracker/" rel="noopener noreferrer">Pivotal Tracker</a></h2>
+<blockquote>
+<p>At first the new strange syntax and functional paradigm intimidated some developers, but <strong>most of us caught on in less than two days.</strong> Learning to think in “FP” can be challenging, but Elm helps ease into it.</p>
+</blockquote>
+<blockquote>
+<p>Even better though, working with Elm was downright enjoyable. The tools make it so easy and frictionless to develop, and the compiler makes refactoring a cinch. We’ve refactored the entire file system in a day with no regressions, something that would’ve been nearly impossible in our other code bases.</p>
+</blockquote>
+<blockquote>
+<p>... developers were literally bidding on the stories that involved Elm work during our morning stand-ups.</p>
+</blockquote>
+<p>...</p>
+<blockquote>
+<p>our manager has mandated that all new code be written in Elm.</p>
+</blockquote>
+<h2><a href="http://futurice.com/blog/elm-in-the-real-world" rel="noopener noreferrer">Futurice</a></h2>
+<blockquote>
+<p>Choosing Elm for a customer project made my job nicer than ever and helped maintain project velocity during months of development.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Despite being a whole new language to learn, I would argue the gains of the language design can far outweigh the "loss of time" while learning. JavaScript is, after all, a very very convoluted language with myriads of different libraries, frameworks, linters et cetera to try and make dealing with it less painful.</p>
+</blockquote>
+<blockquote>
+<p>Based on my experiences, I wholeheartedly recommend Elm for all bigger frontend application projects from now on. There are parts that are more cumbersome than in JavaScript, for sure. But all things considered, I value the guarantees Elm provides far more than the ability to do things quick 'n' dirty.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Go and learn Elm. Seriously. It is the simplest language I have ever tried, and the team has put a crazy lot of effort into making the developer experience as nice as possible.</p>
+</blockquote>
+<blockquote>
+<p>The syntax may seem daunting at first, but don't fret. It's like getting a nice new sweater. A few days in, you'll be familiar with it and from then on it's like you've always known it. In our project, two out of three developers had never coded in Elm before. Both of them got up to speed and were productive in a couple of weeks. Even the sceptic told me that once he got over the initial shock, he found Elm a very nice language and a good fit for the project.</p>
+</blockquote>
+<h2>Move fast and don't break things</h2>
+<blockquote>
+<p><strong>Elm has allowed us to move much faster than we would have done with JavaScript</strong> by never letting us get stuck on frustrating bugs. Bugs also have the impact of making you fatigued, with Elm we can code for 14 hours and not be frustrated when we go to bed.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>This is a real issue in javascript where you always can hack something together, but <strong>in Elm it’s really hard to shoot yourself in the foot.</strong> You can probably do it but it’s very hard to write terrible code. React works really well if you are a pretty good programmer and you stay disciplined. As soon you get that one co-worker that starts binding to window or mutating state directly you’re in for a bad time.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Elm-format, combined with the fact that all Elm programs follow the same architecture, make it possible to understand a random Elm project much more easily than a random javascript project.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Elm really payed off and we could not be happier</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>With Elm you cannot just hack stuff together, if it works it’s probably the right way. You get stuck until you learn the correct way but then its simple. A real downside to elm thou is that react-native feels way more painful now.</p>
+</blockquote>
+<p><a href="http://localhost:5000/elm.md" rel="noopener noreferrer">Elm</a></p>
+
+    </div>
+</body>
+
+</html>

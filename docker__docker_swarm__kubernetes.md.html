@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Docker  Docker Swarm  Kubernetes </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Docker / Docker Swarm / Kubernetes</h1>
+<p><a href="http://localhost:5000/nerdlunch.md" rel="noopener noreferrer">nerdlunch</a></p>
+<h2>Docker</h2>
+<h3>Docker containers</h3>
+<ul>
+<li>Are independent (basically a virtual machine)</li>
+<li>Have environment varibles</li>
+<li>one process running (as opposed to a virtual machine)</li>
+<li>have a root volume</li>
+<li>one entrypoint</li>
+</ul>
+<h3>Containers</h3>
+<p>Layers of changes to a basic container.</p>
+<p><strong>layers</strong> can be cached.</p>
+<p><strong>every command</strong> == <strong>layer</strong></p>
+<p>Order them so the most changed stuff is at the top</p>
+<h3>Networks</h3>
+<p><strong>bridge network</strong>: you have your own internal network that gets translated into a different address when it goes out.</p>
+<p><strong>host network</strong>:  ???</p>
+<p><strong>overlay network</strong>: Docker Swarm/Kubernetes make them think they are in the same network even if they are in other network.</p>
+Docker Compose
+<p><code>http://elasticsearch:9200</code>  &lt;- Looks like this</p>
+<h3>Ports</h3>
+<p>Docker (can) expose (map) ports. There's a <em>host port</em>. Way to make it look like a host network.</p>
+<h3>Volumes</h3>
+<p>How you get persistent data.</p>
+<p><strong>named volumes</strong>: way to keep stuff around. (docker gives them a uuid if unnamed)</p>
+<p>You can <strong>mount</strong> a volume from your host machine.</p>
+<h2>Docker Swarm / Kubernetes</h2>
+<p>multiple container working together with network, ins and lifecycle</p>
+<ul>
+<li>Entry Nodes (docker compose / kubernetes) -&gt; route to right place in cluster</li>
+</ul>
+<h2>Kubernetes</h2>
+<p>Can mount <code>ebs</code> volumes</p>
+
+    </div>
+</body>
+
+</html>

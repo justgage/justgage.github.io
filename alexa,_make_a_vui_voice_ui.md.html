@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Alexa, make a VUI (voice ui) </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+
+    <div id="main">
+        <h1>Alexa, make a VUI (voice ui)</h1>
+<h1>Design</h1>
+<h2>Ways to prototype</h2>
+<ol>
+<li>Role-play</li>
+<li>Scripts</li>
+<li>SaySpring -&gt; free but request an invite</li>
+<li>HighFidelity</li>
+</ol>
+<h2>Design principles</h2>
+<ul>
+<li>Keep it short</li>
+<li>Voice is a great input but less nice for output (alexa talking to you)</li>
+<li>have a low amount of things you can do</li>
+<li><strong>Cognitive load</strong> People can't remember things for very long, keep them very short.
+<ul>
+<li>Banking app knowing and doing math with the credit card account and how much is left.</li>
+</ul>
+</li>
+</ul>
+<h3>Utterances: What people actually say</h3>
+<h3>Intent: What you're actually trying to say</h3>
+<h3>Principles of conversation</h3>
+<ul>
+<li>
+<p>Sound Natural</p>
+<ul>
+<li>Talking out loud helps a lot</li>
+</ul>
+</li>
+<li>
+<p>Keep it short</p>
+</li>
+<li>
+<p>Watch for <strong>cognitive load</strong></p>
+</li>
+<li>
+<p>think about Affordances</p>
+</li>
+<li>
+<p>Take turns</p>
+<ul>
+<li>Don't ask a question then keep talking!</li>
+</ul>
+</li>
+<li>
+<p>Use confirmation phrases</p>
+<ul>
+<li>Explicit
+<ul>
+<li>Good for things that are high risk or likely to go wrong like names</li>
+<li>500$ are you sure you want to do this?</li>
+</ul>
+</li>
+<li>Implicit Feedback
+*</li>
+</ul>
+</li>
+<li>
+<p>Give people credit</p>
+<ul>
+<li>Don't force people to say things one way</li>
+<li>Prime them but don't tell them what to say</li>
+</ul>
+</li>
+<li>
+<p>Vary your responses</p>
+<ul>
+<li>Great, alright, sweet.</li>
+</ul>
+</li>
+<li>
+<p>Engage beginners and experts</p>
+<ul>
+<li>Don't tell them tons of stuff after they've heard it a lot</li>
+</ul>
+</li>
+<li>
+<p>Conversation Repair</p>
+<ul>
+<li>No input
+<ul>
+<li>Say it again</li>
+<li><strong>better</strong> give more helpful re-prompts.
+*</li>
+</ul>
+</li>
+<li>Bad to undersand</li>
+<li>Expect variations</li>
+<li>prepared to step in and help anytime
+<ul>
+<li>Make it contextual</li>
+</ul>
+</li>
+<li>Fail Gracefull
+<ul>
+<li>"Let's talk again later, here's how to get back"</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Use SSML</p>
+<ul>
+<li>Change the way you say, whispered, pronounce it in very particular ways</li>
+<li>&lt;audio ..../&gt; to have 3rd party audio</li>
+<li>Change the say you pronounce it</li>
+<li>etc...</li>
+</ul>
+</li>
+<li>
+<p><em>more on the website</em></p>
+</li>
+<li>
+<p>Wake word -&gt; "Alexa"</p>
+</li>
+<li>
+<p>Pizza Plannet -&gt; app name</p>
+</li>
+<li>
+<p>Intents: Order me a pizza -&gt; OrderPizzaIntent</p>
+<ul>
+<li>I need my pizza</li>
+<li>I need a pizza</li>
+<li>I be got pizza</li>
+<li>My regular</li>
+</ul>
+</li>
+<li>
+<p>Slot (alexa) / Entitiy (google)</p>
+<ul>
+<li>{size} -&gt; list of stuff that are in that category
+<ul>
+<li>Large/Big -&gt; large</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Responses</p>
+</li>
+</ul>
+<p>Types of skills</p>
+<ul>
+<li>Flash Briefing
+<ul>
+<li>rss feed of information</li>
+</ul>
+</li>
+<li>Custom
+<ul>
+<li>What we're making</li>
+</ul>
+</li>
+<li>Video
+<ul>
+<li>Like for TV</li>
+</ul>
+</li>
+</ul>
+<p>AWS Lambda ARN</p>
+<ul>
+<li>Lambda functions are the way to go usually</li>
+</ul>
+<pre><code>const Alexa = require('alexa-sdk');
+
+const handlers = {
+	'LaunchRequest': function() {
+		this.emit(":ask", "Hello my friends at Open WEst!", "no really, hello");
+   }
+}
+
+	
+
+
+</code></pre>
+<h1>Ideas</h1>
+<ol>
+<li>Reserving a room</li>
+<li>Check/Log expenses</li>
+<li>Sending a coworker a message.</li>
+</ol>
+<p><a href="http://localhost:5000/open-west.md" rel="noopener noreferrer">open-west</a></p>
+
+    </div>
+</body>
+
+</html>
