@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Zulip </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        #main {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 auto;
+            max-width: 40rem;
+        }
+
+        #nav {
+            display: flex;
+            margin: 1rem;
+            font-size: 2rem;
+            padding: 0.5rem 2rem;
+            background-color: #efe5d9;
+            border-radius: 9999px;
+        }
+
+        #nav>a {
+            font-style: bold;
+            margin-right: 0.5rem;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="nav">
+        <a alt="home" href="/">🏝  JUSTGAGE</a>
+        <div style="flex-grow: 1;"></div>
+        <a alt="slipbox" href="/slipbox.md">🗂</a>
+    </nav>
+    <div id="main">
+        <h1>Zulip</h1>
+<p>Zulip at <a href="https://zulip.com/" rel="noopener noreferrer">https://zulip.com/</a> is a Group Chat alternative that get's a lot of things right that <a href="https://justgage.github.io/slack.md" rel="noopener noreferrer">Slack</a> didn't. It offers a kind of weird threaded but unthreaded model. Don't think it's my favorite, but it kind of cool at the same time.</p>
+<p>There's a good article <a href="https://justgage.github.io/source--zulip_v.s._slack.md" rel="noopener noreferrer">Source--Zulip V.S. Slack</a></p>
+<h2>Design Walk-through</h2>
+<h3>Topic design</h3>
+<p>You can see topics in the sidebar pretty easily:</p>
+<p><img src="https://justgage.github.io/pasted_image_20210106061926.png" alt="Pasted image 20210106061926"></p>
+<p>When you view a channel it looks like the picture below. Every message IS assigned to a topic, but the messages are also interweaving like normal chat.</p>
+<p><img src="https://justgage.github.io/pasted_image_20210106062054.png" alt="Pasted image 20210106062054"></p>
+<p>If you want to dive into a topic you can by clicking on it's title:</p>
+<p><img src="https://justgage.github.io/pasted_image_20210106062318.png" alt="Pasted image 20210106062318"></p>
+<h3>Replying to a message</h3>
+<p>Replying is perhaps the most weird and interesting part. When you're in a channel you have to click on a message THEN it will let you reply:</p>
+<h1>Screen Recording 2021-01-06 at 06.25.19 AM.gif <a href="https://justgage.github.io/screen_recording_2021-01-06_at_06.25.19_am.gif.md" rel="noopener noreferrer">🔖</a></h1>
+<h2><em>this file hasn't been written, it's a stub</em></h2>
+<h3>Creating a new Topic</h3>
+<p>Creating a new topic looks like the image below. It immediately puts you in the topic input to help encourage that, although doesn't require it!</p>
+<h1>Screen Recording 2021-01-06 at 06.28.03 AM.gif <a href="https://justgage.github.io/screen_recording_2021-01-06_at_06.28.03_am.gif.md" rel="noopener noreferrer">🔖</a></h1>
+<h2><em>this file hasn't been written, it's a stub</em></h2>
+<h3>Search</h3>
+<p>Search is very important and what <em>should</em> set something that sets Zulip apart from <a href="https://justgage.github.io/slack.md" rel="noopener noreferrer">Slack</a> due to the organized titles.</p>
+<p>I'm pleased with this first typing into the box:
+<img src="https://justgage.github.io/pasted_image_20210106063948.png" alt="Pasted image 20210106063948"></p>
+<p>If you push enter it spins for a second (probably doing a full text search). And shows a pretty pleasing view of the results, although really just a different type of channel view.</p>
+<p><img src="https://justgage.github.io/pasted_image_20210106064327.png" alt="Pasted image 20210106064327"></p>
+<h3>Referencing other topics</h3>
+<p>You seem to be able to do this with the <code>#</code> symbol to go to channels, then <code>&gt;</code> to go to different topics. Works pretty well!</p>
+<h1>Screen Recording 2021-01-06 at 06.45.51 AM.gif <a href="https://justgage.github.io/screen_recording_2021-01-06_at_06.45.51_am.gif.md" rel="noopener noreferrer">🔖</a></h1>
+<h2><em>this file hasn't been written, it's a stub</em></h2>
+<h3>Topic Naming merges topics</h3>
+<p>If two topics have the same name, they merge. You can see that in this comment there was a spam thread that got started and it it kind of merged with my accidental thread.</p>
+<p><img src="https://justgage.github.io/pasted_image_20210106083956.png" alt="Pasted image 20210106083956"></p>
+<h3>The sidebar problem</h3>
+<p>The sidebar of topics is a bit weird to me. I think it encourages duplicating topics if they've happened over a long period of time, although the merging kind of helps with this, but that's only if you name it the exact same.</p>
+<p><img src="https://justgage.github.io/pasted_image_20210106084201.png" alt="Pasted image 20210106084201"></p>
+<p>However there is one more view that is actually what I really want all the time called "recent topics":</p>
+<p><img src="https://justgage.github.io/pasted_image_20210106084244.png" alt="Pasted image 20210106084244"></p>
+<h3>My Thoughts</h3>
+<p>Overall I find the "see messages at any level" model a lot more confusing and less calm then something like <a href="https://justgage.github.io/basecamp.md" rel="noopener noreferrer">Basecamp</a>'s message boards. Also it does seem that Zulip does still does still encourage reading every message, although it's easier to write off topics as uninteresting. Overall it's a very nice <a href="https://justgage.github.io/open_source.md" rel="noopener noreferrer">Open source</a> alternative to something like <a href="https://justgage.github.io/twist.md" rel="noopener noreferrer">Twist</a>!</p>
+<h1>Other stuff</h1>
+<p>This is one cool part, they handle <a href="https://justgage.github.io/unread_bankruptcy.md" rel="noopener noreferrer">unread bankruptcy</a> pretty well here!</p>
+<p><img src="https://justgage.github.io/pasted_image_20210106061558.png" alt="Pasted image 20210106061558"></p>
+<hr>
+<p><em><strong>Backlinks</strong></em>:</p>
+<ul>
+<li><a href="https://justgage.github.io/slack_competitors.md" rel="noopener noreferrer">Slack competitors</a></li>
+<li><a href="https://justgage.github.io/there's_no_good_way_to_use_slack_threads.md" rel="noopener noreferrer">There's no good way to use Slack threads</a></li>
+<li><a href="https://justgage.github.io/unread_bankruptcy.md" rel="noopener noreferrer">unread bankruptcy</a></li>
+</ul>
+
+    </div>
+</body>
+
+</html>

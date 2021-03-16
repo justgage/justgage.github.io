@@ -24,6 +24,9 @@
             display: flex;
             margin: 1rem;
             font-size: 2rem;
+            padding: 0.5rem 2rem;
+            background-color: #efe5d9;
+            border-radius: 9999px;
         }
 
         #nav>a {
@@ -40,7 +43,6 @@
         <div style="flex-grow: 1;"></div>
         <a alt="slipbox" href="/slipbox.md">🗂</a>
     </nav>
-
     <div id="main">
         <h1>Handling LastSeenAt/LastSeenUrl</h1>
 <p>LastSeenAt is a value that's constantly updating and as such it seems too expensive and probably not worth it to store that in the event store.</p>
